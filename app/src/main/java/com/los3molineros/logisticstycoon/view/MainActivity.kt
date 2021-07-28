@@ -6,11 +6,11 @@ import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
+import com.los3molineros.logisticstycoon.R
 import com.los3molineros.logisticstycoon.databinding.ActivityMainBinding
 import com.los3molineros.logisticstycoon.viewModel.MainViewModel
 import kotlinx.coroutines.launch
@@ -51,20 +51,19 @@ class MainActivity : AppCompatActivity() {
 
     
     fun showVersionDialog() {
-        Log.d("Sergio", "entramos en dialog")
         val dialogBuilder = AlertDialog.Builder(this)
         dialogBuilder
-            .setMessage("Existe nueva versión, Actualice app")
+            .setMessage(getString(R.string.actDescripcion))
             .setCancelable(false)
-            .setPositiveButton("Actualizar ahora") { dialog, which ->
+            .setPositiveButton(getString(R.string.actSi)) { dialog, which ->
                 openAppInPlaystore("com.mobile.legends", this)
             }
-            .setNegativeButton("Ahora no") {dialog, which -> {
+            .setNegativeButton(getString(R.string.actNo)) {dialog, which -> {
                 dialog.dismiss()
             } }
 
         val alert = dialogBuilder.create()
-        alert.setTitle("Actualización disponible")
+        alert.setTitle(getString(R.string.actTitulo))
         alert.show()
     }
 }

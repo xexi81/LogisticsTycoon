@@ -5,4 +5,10 @@
     <string name="quote1">"Luis es un poco marikita"</string>
     <string name="quote2">"Josep es un poco gay"</string>
     <string name="quote3">"Luis es halterofílico"</string>
+
+    // actualizaciones disponibles
+    <string name="actTitulo">Actualización disponible</string>
+    <string name="actDescripcion">¿Desea descargar la actualización?</string>
+    <string name="actSi">Actualizar</string>
+    <string name="actNo">Ahora no</string>
 </resources>

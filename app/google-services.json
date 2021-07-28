@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "620526146492",
+    "project_id": "logistics-tycoon",
+    "storage_bucket": "logistics-tycoon.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:620526146492:android:cbc734503ce519031191b9",
+        "android_client_info": {
+          "package_name": "com.los3molineros.logisticstycoon"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "620526146492-50vgbrodrdtfk8gtemn7f9p7jubao3pq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.los3molineros.logisticstycoon",
+            "certificate_hash": "dd6e5df70de4e2286e8ea31a721e613582932cea"
+          }
+        },
+        {
+          "client_id": "620526146492-48b3qm8u9efqat1eicla04qrnnp0s99v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCyb8T4zw7Zx0XyGsEWio_J8LsjEM7Qgd4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "620526146492-48b3qm8u9efqat1eicla04qrnnp0s99v.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

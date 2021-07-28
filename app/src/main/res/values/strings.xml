@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Logistics Tycoon</string>
+
+    // quotes
+    <string name="quote1">"Luis es un poco marikita"</string>
+    <string name="quote2">"Josep es un poco gay"</string>
+    <string name="quote3">"Luis es halterofílico"</string>
+</resources>

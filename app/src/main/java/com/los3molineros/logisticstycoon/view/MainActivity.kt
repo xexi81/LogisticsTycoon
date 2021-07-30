@@ -10,6 +10,7 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
+import com.los3molineros.logisticstycoon.BuildConfig
 import com.los3molineros.logisticstycoon.R
 import com.los3molineros.logisticstycoon.databinding.ActivityMainBinding
 import com.los3molineros.logisticstycoon.viewModel.MainViewModel
@@ -26,24 +27,20 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
 
-        mainViewModel.version.observe(this, Observer {
-            if (it!=null) {
-                binding.txtVersion.text = it.versionName
-                lifecycleScope.launch { mainViewModel.searchSharedVersion(baseContext, it.versionCode) }
+        mainViewModel.version.observe(this, Observer { parameters ->
+            if (parameters!=null) {
+                binding.txtVersion.text = parameters.versionName
+
+                if (parameters.versionCode!= BuildConfig.VERSION_CODE) {
+                    showVersionDialog()
+                }
             }
         })
-
 
         mainViewModel.quote.observe(this, Observer {
             if (it!=null) {
                 val strings: Int = resources.getIdentifier(it.quote, "string", packageName)
                 binding.txtQuote.text = getString(strings)
-            }
-        })
-
-        mainViewModel.isActualVersion.observe(this, Observer {
-            if (!it) {
-                showVersionDialog()
             }
         })
 

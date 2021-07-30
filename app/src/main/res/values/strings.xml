@@ -11,4 +11,7 @@
     <string name="actDescripcion">¿Desea descargar la actualización?</string>
     <string name="actSi">Actualizar</string>
     <string name="actNo">Ahora no</string>
+
+    // login
+    <string name="password_remember">Recordar password</string>
 </resources>

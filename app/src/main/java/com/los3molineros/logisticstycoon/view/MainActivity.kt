@@ -9,12 +9,12 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
-import androidx.lifecycle.lifecycleScope
 import com.los3molineros.logisticstycoon.BuildConfig
 import com.los3molineros.logisticstycoon.R
 import com.los3molineros.logisticstycoon.databinding.ActivityMainBinding
 import com.los3molineros.logisticstycoon.viewModel.MainViewModel
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
+import java.util.concurrent.TimeUnit
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -25,7 +25,6 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-
 
         mainViewModel.version.observe(this, Observer { parameters ->
             if (parameters!=null) {
@@ -42,6 +41,20 @@ class MainActivity : AppCompatActivity() {
                 val strings: Int = resources.getIdentifier(it.quote, "string", packageName)
                 binding.txtQuote.text = getString(strings)
             }
+        })
+
+        mainViewModel.userExists.observe(this, Observer { userExists ->
+            CoroutineScope(Dispatchers.IO).launch {
+                delay(TimeUnit.SECONDS.toMillis(3))
+                withContext(Dispatchers.Main) {
+                    if (userExists) {
+                        startActivity(Intent(this@MainActivity, MainActivity::class.java))
+                    } else {
+                        startActivity(Intent(this@MainActivity, LoginActivity::class.java))
+                    }
+                }
+            }
+
         })
 
     }

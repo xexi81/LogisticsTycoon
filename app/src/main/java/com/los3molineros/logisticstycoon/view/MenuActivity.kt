@@ -17,6 +17,7 @@ import com.los3molineros.logisticstycoon.R
 import com.los3molineros.logisticstycoon.databinding.ActivityMenuBinding
 import com.los3molineros.logisticstycoon.viewModel.MainViewModel
 import com.los3molineros.logisticstycoon.viewModel.MenuViewModel
+import com.squareup.picasso.Picasso
 
 class MenuActivity : AppCompatActivity() {
     lateinit var binding: ActivityMenuBinding
@@ -39,8 +40,16 @@ class MenuActivity : AppCompatActivity() {
             }
         }
 
+        // User Postit
+        menuViewModel.user.observe(this) {firebaseUser ->
+            Picasso.get().load(firebaseUser?.photoUrl).into(binding.ivUserPhoto)
+        }
 
-        // Sign out
+
+
+
+
+        // Sign out Postit
         binding.postit12.setOnClickListener {
             val mAuth = FirebaseAuth.getInstance()
 

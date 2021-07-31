@@ -18,14 +18,32 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:orientation="horizontal"
-            android:weightSum="3">
+            android:weightSum="2">
 
-            <ImageView
-                android:id="@+id/postit1"
+            <RelativeLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/postit1" />
+                android:layout_weight="1" >
+
+
+
+                <ImageView
+                    android:id="@+id/ivPostit1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/postit1" />
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/ivUserPhoto"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/inicio_truck" />
+
+            </RelativeLayout>
+
+
 
             <ImageView
                 android:id="@+id/postit2"
@@ -34,12 +52,6 @@
                 android:layout_weight="1"
                 app:srcCompat="@drawable/postit2" />
 
-            <ImageView
-                android:id="@+id/postit3"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/postit1" />
 
         </LinearLayout>
 
@@ -48,7 +60,7 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:orientation="horizontal"
-            android:weightSum="3">
+            android:weightSum="2">
 
             <ImageView
                 android:id="@+id/postit4"
@@ -57,12 +69,6 @@
                 android:layout_weight="1"
                 app:srcCompat="@drawable/postit2" />
 
-            <ImageView
-                android:id="@+id/postit5"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/postit1" />
 
             <ImageView
                 android:id="@+id/postit6"
@@ -78,14 +84,7 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:orientation="horizontal"
-            android:weightSum="3">
-
-            <ImageView
-                android:id="@+id/postit7"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/postit2" />
+            android:weightSum="2">
 
             <ImageView
                 android:id="@+id/postit8"
@@ -108,7 +107,7 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:orientation="horizontal"
-            android:weightSum="3">
+            android:weightSum="2">
 
             <ImageView
                 android:id="@+id/postit10"
@@ -117,12 +116,6 @@
                 android:layout_weight="1"
                 app:srcCompat="@drawable/postit1" />
 
-            <ImageView
-                android:id="@+id/postit11"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/postit1" />
 
             <ImageView
                 android:id="@+id/postit12"

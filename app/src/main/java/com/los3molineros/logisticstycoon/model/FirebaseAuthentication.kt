@@ -2,6 +2,7 @@ package com.los3molineros.logisticstycoon.model
 
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
 import kotlinx.coroutines.tasks.await
 import java.util.*
@@ -18,6 +19,12 @@ suspend fun registerUser(email: String, password: String) {
     val currentUser = FirebaseAuth.getInstance()
 
     currentUser.createUserWithEmailAndPassword(email, password).await()
+}
+
+suspend fun returnFirebaseUser(): FirebaseUser? {
+    val currentUser = FirebaseAuth.getInstance().currentUser
+
+    return currentUser
 }
 
 // Login an user on firebase

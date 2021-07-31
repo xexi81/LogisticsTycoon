@@ -40,14 +40,8 @@ class MenuActivity : AppCompatActivity() {
         }
 
 
-
-        // User UUID
-        val currentUser = FirebaseAuth.getInstance().currentUser
-
-        binding.txtUid.text = currentUser?.uid ?: " "
-
         // Sign out
-        binding.btnExit.setOnClickListener {
+        binding.postit12.setOnClickListener {
             val mAuth = FirebaseAuth.getInstance()
 
             val googleSignInOptions = GoogleSignInOptions.Builder()

@@ -5,20 +5,16 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.los3molineros.logisticstycoon.model.alreadyExistsUser
 import com.los3molineros.logisticstycoon.model.data.Parameters
-import com.los3molineros.logisticstycoon.model.data.Quotes
 import com.los3molineros.logisticstycoon.model.selectFirebaseParams
-import com.los3molineros.logisticstycoon.model.selectRandomQuote
 import kotlinx.coroutines.launch
 
-class MainViewModel: ViewModel() {
+class MenuViewModel : ViewModel() {
     val parameters = MutableLiveData<Parameters?>()
-    val quote = MutableLiveData<Quotes?>()
     val userExists = MutableLiveData<Boolean>()
 
     init {
         viewModelScope.launch {
             parameters.postValue(selectFirebaseParams())
-            quote.postValue(selectRandomQuote())
             userExists.postValue(alreadyExistsUser())
         }
     }

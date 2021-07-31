@@ -25,7 +25,6 @@ class LoginActivity : AppCompatActivity() {
         setContentView(binding.root)
 
 
-
         // Register with firebase
         binding.btnRegister.setOnClickListener {
             createFirebaseUser(binding)
@@ -48,7 +47,6 @@ class LoginActivity : AppCompatActivity() {
         binding.btnGoogle.setOnClickListener {
             loginGoogleUser(binding)
         }
-
 
     }
 
@@ -115,7 +113,6 @@ class LoginActivity : AppCompatActivity() {
             }
         }
     }
-
 
 
     private fun loginGoogleUser(binding: ActivityLoginBinding) {

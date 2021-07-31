@@ -14,4 +14,9 @@
 
     // login
     <string name="password_remember">Recordar password</string>
+    <string name="username_or_email">usuario o email</string>
+    <string name="password">password</string>
+    <string name="log_in">acceder</string>
+    <string name="register">regístrate</string>
+    <string name="or">o</string>
 </resources>

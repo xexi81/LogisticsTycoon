@@ -48,7 +48,7 @@ class MainActivity : AppCompatActivity() {
                 delay(TimeUnit.SECONDS.toMillis(3))
                 withContext(Dispatchers.Main) {
                     if (userExists) {
-                        startActivity(Intent(this@MainActivity, MainActivity::class.java))
+                        startActivity(Intent(this@MainActivity, MenuActivity::class.java))
                     } else {
                         startActivity(Intent(this@MainActivity, LoginActivity::class.java))
                     }

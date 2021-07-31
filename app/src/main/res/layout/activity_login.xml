@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background"
     tools:context=".view.LoginActivity">
 
 
@@ -15,11 +16,14 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:ems="10"
-        android:hint="Username or Email"
+        android:hint="@string/username_or_email"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:backgroundTint="@color/white"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"/>
 
     <EditText
         android:id="@+id/txtPassword"
@@ -29,11 +33,13 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:ems="10"
-        android:hint="Password"
+        android:hint="@string/password"
         android:inputType="textPersonName|textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtUsername" />
+        app:layout_constraintTop_toBottomOf="@+id/txtUsername"
+        android:backgroundTint="@color/white"
+        android:textColorHint="@color/white"/>
 
     <Button
         android:id="@+id/btnLogin"
@@ -43,7 +49,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:backgroundTint="@color/white"
-        android:text="LOG IN"
+        android:text="@string/log_in"
         android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -58,7 +64,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:backgroundTint="@color/white"
-        android:text="Register"
+        android:text="@string/register"
         android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -73,7 +79,8 @@
         android:text="@string/password_remember"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnRegister" />
+        app:layout_constraintTop_toBottomOf="@+id/btnRegister"
+        android:textColor="@color/white"/>
 
     <LinearLayout
         android:id="@+id/layoutFirst"
@@ -88,7 +95,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
-            android:text="OR" />
+            android:text="@string/or"
+            android:textColor="@color/white"/>
     </LinearLayout>
 
     <LinearLayout
@@ -106,7 +114,7 @@
             android:layout_width="0dp"
             android:layout_height="1dp"
             android:layout_weight="5"
-            android:background="@android:color/black" />
+            android:background="@android:color/white" />
 
         <Space
             android:layout_width="0dp"
@@ -117,7 +125,7 @@
             android:layout_width="0dp"
             android:layout_height="1dp"
             android:layout_weight="5"
-            android:background="@android:color/black" />
+            android:background="@android:color/white" />
     </LinearLayout>
 
     <com.google.android.gms.common.SignInButton

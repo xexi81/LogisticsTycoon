@@ -7,4 +7,11 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- GameColors !-->
+    <color name="background">#9DB5C8</color>
+    <color name="background2">#D4D8DC</color>
+
+
+
 </resources>

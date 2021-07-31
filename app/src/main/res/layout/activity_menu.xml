@@ -28,30 +28,46 @@
 
 
                 <ImageView
-                    android:id="@+id/ivPostit1"
+                    android:id="@+id/ivPostitUser"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:srcCompat="@drawable/postit1" />
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    app:srcCompat="@drawable/postit2" />
 
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/ivUserPhoto"
                     android:layout_width="75dp"
                     android:layout_height="75dp"
                     android:layout_centerHorizontal="true"
-                    android:layout_centerVertical="true"
-                    android:src="@drawable/inicio_truck" />
+                    android:layout_centerVertical="true" />
 
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" >
+
+                <ImageView
+                    android:id="@+id/ivPostitTrucks"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    app:srcCompat="@drawable/postit3" />
+
+                <ImageView
+                    android:id="@+id/ivTrucks"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/truck_menu" />
             </RelativeLayout>
 
 
 
-            <ImageView
-                android:id="@+id/postit2"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/postit2" />
-
 
         </LinearLayout>
 
@@ -62,20 +78,48 @@
             android:orientation="horizontal"
             android:weightSum="2">
 
-            <ImageView
-                android:id="@+id/postit4"
+            <RelativeLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/postit2" />
+                android:layout_weight="1" >
+
+                <ImageView
+                    android:id="@+id/ivPostitMap"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    app:srcCompat="@drawable/postit4" />
+
+                <ImageView
+                    android:id="@+id/ivMap"
+                    android:layout_width="170dp"
+                    android:layout_height="170dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/map2_menu" />
+            </RelativeLayout>
 
 
-            <ImageView
-                android:id="@+id/postit6"
+            <RelativeLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/postit1" />
+                android:layout_weight="1" >
+
+                <ImageView
+                    android:id="@+id/ivPostitHeadquarter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    app:srcCompat="@drawable/postit5" />
+
+                <ImageView
+                    android:id="@+id/ivHeadquarter"
+                    android:layout_width="150dp"
+                    android:layout_height="120dp"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/headquarter_menu" />
+            </RelativeLayout>
 
         </LinearLayout>
 
@@ -86,19 +130,34 @@
             android:orientation="horizontal"
             android:weightSum="2">
 
-            <ImageView
-                android:id="@+id/postit8"
+            <RelativeLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/postit2" />
+                android:layout_weight="1" >
+
+                <ImageView
+                    android:id="@+id/ivPostitPartnerships"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    app:srcCompat="@drawable/postit6" />
+
+                <ImageView
+                    android:id="@+id/ivPartnership"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/partnership_menupng" />
+            </RelativeLayout>
 
             <ImageView
                 android:id="@+id/postit9"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/postit1" />
+                app:srcCompat="@drawable/postit7" />
 
         </LinearLayout>
 
@@ -114,15 +173,30 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/postit1" />
+                app:srcCompat="@drawable/postit8" />
 
 
-            <ImageView
-                android:id="@+id/postit12"
+            <RelativeLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/logout_postit" />
+                android:layout_weight="1" >
+
+                <ImageView
+                    android:id="@+id/ivPostitSignOut"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    app:srcCompat="@drawable/postit10" />
+
+                <ImageView
+                    android:id="@+id/ivSignOut"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/signout_menu" />
+            </RelativeLayout>
 
         </LinearLayout>
 

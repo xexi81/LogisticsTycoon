@@ -15,7 +15,6 @@ import com.google.firebase.auth.FirebaseAuth
 import com.los3molineros.logisticstycoon.BuildConfig
 import com.los3molineros.logisticstycoon.R
 import com.los3molineros.logisticstycoon.databinding.ActivityMenuBinding
-import com.los3molineros.logisticstycoon.viewModel.MainViewModel
 import com.los3molineros.logisticstycoon.viewModel.MenuViewModel
 import com.squareup.picasso.Picasso
 
@@ -46,11 +45,8 @@ class MenuActivity : AppCompatActivity() {
         }
 
 
-
-
-
         // Sign out Postit
-        binding.postit12.setOnClickListener {
+        binding.ivPostitSignOut.setOnClickListener {
             val mAuth = FirebaseAuth.getInstance()
 
             val googleSignInOptions = GoogleSignInOptions.Builder()

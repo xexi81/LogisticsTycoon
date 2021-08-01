@@ -9,12 +9,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
-import com.google.android.gms.auth.api.signin.GoogleSignIn
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions
-import com.google.firebase.auth.FirebaseAuth
 import com.los3molineros.logisticstycoon.BuildConfig
 import com.los3molineros.logisticstycoon.R
 import com.los3molineros.logisticstycoon.databinding.ActivityMenuBinding
+import com.los3molineros.logisticstycoon.model.signOutFirebase
 import com.los3molineros.logisticstycoon.viewModel.MenuViewModel
 import com.squareup.picasso.Picasso
 
@@ -26,6 +24,7 @@ class MenuActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMenuBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
 
         menuViewModel.parameters.observe(this, Observer { parameters ->
             if (parameters!=null && parameters.versionCode != BuildConfig.VERSION_CODE) {
@@ -39,26 +38,25 @@ class MenuActivity : AppCompatActivity() {
             }
         }
 
-        // User Postit
+        // User Posit
         menuViewModel.user.observe(this) {firebaseUser ->
             Picasso.get().load(firebaseUser?.photoUrl).into(binding.ivUserPhoto)
         }
 
 
-        // Sign out Postit
+        // ON CLICK LISTENERS
+
+        // user Posit
+        binding.ivPostitUser.setOnClickListener {
+            startActivity(Intent(this, UserMenu::class.java))
+        }
+
+
+
+
+        // Sign out Posit
         binding.ivPostitSignOut.setOnClickListener {
-            val mAuth = FirebaseAuth.getInstance()
-
-            val googleSignInOptions = GoogleSignInOptions.Builder()
-                .requestIdToken(getString(R.string.default_web_client_id))
-                .requestEmail()
-                .build()
-
-            val mGoogleSignInClient = GoogleSignIn.getClient(this, googleSignInOptions)
-
-            mAuth.signOut()
-            mGoogleSignInClient.signOut()
-
+            signOutFirebase(this)
 
             // finish all the previous activities
             val intent = Intent(this,MainActivity::class.java)

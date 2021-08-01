@@ -1,9 +1,13 @@
 package com.los3molineros.logisticstycoon.model
 
+import android.content.Context
+import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
+import com.los3molineros.logisticstycoon.R
 import kotlinx.coroutines.tasks.await
 import java.util.*
 
@@ -61,4 +65,20 @@ suspend fun firebaseAuthWithGoogle(account: GoogleSignInAccount): Boolean {
         return false
     }
 
+}
+
+
+// Sign Out
+fun signOutFirebase(context: Context) {
+    val mAuth = FirebaseAuth.getInstance()
+
+    val googleSignInOptions = GoogleSignInOptions.Builder()
+        .requestIdToken(context.getString(R.string.default_web_client_id))
+        .requestEmail()
+        .build()
+
+    val mGoogleSignInClient = GoogleSignIn.getClient(context, googleSignInOptions)
+
+    mAuth.signOut()
+    mGoogleSignInClient.signOut()
 }

@@ -73,11 +73,13 @@ class LoginActivity : AppCompatActivity() {
             this.toast("Email is empty")
         }
 
-        if (binding.txtPassword.checkEmpty()) {
+        else if (binding.txtPassword.checkEmpty()) {
             this.toast("Password is empty")
         }
 
-        loginViewModel.firebaseRegisterUser(binding.txtUsername.text.toString(), binding.txtPassword.text.toString())
+        else {
+            loginViewModel.firebaseRegisterUser(binding.txtUsername.text.toString(), binding.txtPassword.text.toString())
+        }
     }
 
 
@@ -88,11 +90,14 @@ class LoginActivity : AppCompatActivity() {
             this.toast("Email is empty")
         }
 
-        if (binding.txtPassword.checkEmpty()) {
+        else if (binding.txtPassword.checkEmpty()) {
             this.toast("Password is empty")
         }
 
-        loginViewModel.firebaseLoginUser(binding.txtUsername.text.toString(), binding.txtPassword.text.toString())
+        else {
+            loginViewModel.firebaseLoginUser(binding.txtUsername.text.toString(), binding.txtPassword.text.toString())
+        }
+
     }
 
 
@@ -101,9 +106,10 @@ class LoginActivity : AppCompatActivity() {
     private fun rememberFirebasePassword(binding: ActivityLoginBinding) {
         if (binding.txtUsername.checkEmpty()) {
             this.toast("Email is empty")
+        } else {
+            loginViewModel.rememberFirebasePassword(binding.txtUsername.text.toString())
         }
 
-        loginViewModel.rememberFirebasePassword(binding.txtUsername.text.toString())
 
         loginViewModel.emailSended.observe(this) { emailSended ->
             if (emailSended) {

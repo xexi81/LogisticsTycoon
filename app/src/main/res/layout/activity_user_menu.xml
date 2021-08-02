@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    tools:layout_editor_absoluteX="0dp"
+    tools:layout_editor_absoluteY="0dp">
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     android:background="@color/game_background"
     tools:context=".view.UserMenu">
 
@@ -23,9 +31,9 @@
         android:id="@+id/ivExit"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:src="@drawable/exit_icon"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
+        android:src="@drawable/exit_icon"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -52,6 +60,7 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/linearLayout3"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginStart="8dp"
@@ -64,18 +73,19 @@
 
         <RelativeLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" >
-        <TextView
-            android:id="@+id/txtUsername"
-            android:layout_width="300dp"
-            android:layout_height="30dp"
-            android:background="@drawable/radius_corner_white"
-            android:textColor="@color/black"
-            android:textSize="12sp"
-            android:gravity="center_vertical"
-            android:layout_alignParentStart="true"
-            android:layout_centerVertical="true"
-            android:text="Pruebas Sergio" />
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/txtUsername"
+                android:layout_width="300dp"
+                android:layout_height="30dp"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/radius_corner_white"
+                android:gravity="center_vertical"
+                android:text="Pruebas Sergio"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
 
             <Button
                 android:id="@+id/btnUsername"
@@ -84,13 +94,481 @@
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
                 android:background="@drawable/radius_corner_button"
+                android:text="EDITAR NOMBRE"
+                android:textAllCaps="false"
                 android:textColor="@color/white"
-                android:textSize="12sp"
-                android:text="Editar Nombre"/>
+                android:textSize="12sp" />
 
         </RelativeLayout>
 
     </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/linearLayout4"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:orientation="horizontal"
+        android:weightSum="3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
+
+        <LinearLayout
+            android:id="@+id/linearLayout5"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/radius_corner"
+            android:orientation="vertical"
+            android:weightSum="3">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginBottom="5dp"
+                android:layout_weight="2"
+                android:scaleType="centerCrop"
+                android:src="@drawable/inicio_truck" />
+
+            <Button
+                android:id="@+id/btnAvatar"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@drawable/radius_corner_button2"
+                android:text="CAMBIAR"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="12sp" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout6"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/radius_corner"
+            android:orientation="vertical"
+            android:weightSum="5">
+
+            <TextView
+                android:id="@+id/txtLevel"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_margin="2dp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="2">
+
+                <ProgressBar
+                    android:id="@+id/pbLevel"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="5dp"
+                    android:indeterminateOnly="false"
+                    android:progressDrawable="@drawable/progress" />
+
+                <TextView
+                    android:id="@+id/txtProgressLevel"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_horizontal|center_vertical"
+                    android:textColor="@color/background"
+                    android:textSize="16sp" />
+            </RelativeLayout>
+
+
+            <TextView
+                android:id="@+id/txtNextLevel"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_margin="5dp"
+                android:layout_weight="2"
+                android:textColor="@color/white"
+                android:textSize="12sp" />
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout7"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
+        android:orientation="vertical"
+        android:weightSum="5"
+        android:background="@drawable/radius_corner"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout4">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1.2"
+            android:weightSum="3"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/txtNotifications"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.5"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:layout_marginStart="8dp"
+                android:gravity="center_vertical"
+                android:text="Notifications"/>
+
+            <RadioGroup
+                android:id="@+id/toggle"
+                android:checkedButton="@+id/notificationOn"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.5"
+                android:background="@drawable/pick_out_line"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:layout_marginTop="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginStart="1dp"
+                    android:id="@+id/notificationOn"
+                    android:background="@drawable/toggle_widget_background"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:button="@null"
+                    android:gravity="center"
+                    android:text="ON"
+                    android:textColor="@color/white" />
+
+                <RadioButton
+                    android:layout_marginEnd="1dp"
+                    android:layout_marginTop="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:id="@+id/notificationOff"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/toggle_widget_background"
+                    android:button="@null"
+                    android:gravity="center"
+                    android:text="OFF"
+                    android:textColor="@color/white" />
+            </RadioGroup>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1.2"
+            android:weightSum="3"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/txtMusic"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.5"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:layout_marginStart="8dp"
+                android:gravity="center_vertical"
+                android:text="Music"/>
+
+            <RadioGroup
+                android:id="@+id/musicToggle"
+                android:checkedButton="@+id/musicOff"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.5"
+                android:background="@drawable/pick_out_line"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:layout_marginTop="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginStart="1dp"
+                    android:id="@+id/musicOn"
+                    android:background="@drawable/toggle_widget_background"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:button="@null"
+                    android:gravity="center"
+                    android:text="ON"
+                    android:textColor="@color/white" />
+
+                <RadioButton
+                    android:layout_marginEnd="1dp"
+                    android:layout_marginTop="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:id="@+id/musicOff"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/toggle_widget_background"
+                    android:button="@null"
+                    android:gravity="center"
+                    android:text="OFF"
+                    android:textColor="@color/white" />
+            </RadioGroup>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1.2"
+            android:weightSum="3"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/txtSounds"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.5"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:layout_marginStart="8dp"
+                android:gravity="center_vertical"
+                android:text="Sounds"/>
+
+            <RadioGroup
+                android:id="@+id/soundToggle"
+                android:checkedButton="@+id/soundOff"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.5"
+                android:background="@drawable/pick_out_line"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:layout_marginTop="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginStart="1dp"
+                    android:id="@+id/soundOn"
+                    android:background="@drawable/toggle_widget_background"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:button="@null"
+                    android:gravity="center"
+                    android:text="ON"
+                    android:textColor="@color/white" />
+
+                <RadioButton
+                    android:layout_marginEnd="1dp"
+                    android:layout_marginTop="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:id="@+id/soundOff"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/toggle_widget_background"
+                    android:button="@null"
+                    android:gravity="center"
+                    android:text="OFF"
+                    android:textColor="@color/white" />
+            </RadioGroup>
+
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnOptions"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1.4"
+            android:paddingStart="55dp"
+            android:paddingEnd="55dp"
+            android:layout_marginTop="5dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/radius_corner_button"
+            android:text="Aceptar"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="12sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout8"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
+        android:orientation="horizontal"
+        android:weightSum="3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout7">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/radius_corner"
+            android:orientation="vertical"
+            android:weightSum="3">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginBottom="5dp"
+                android:layout_weight="2"
+                android:scaleType="fitCenter"
+                android:src="@drawable/camiones_icon" />
+
+            <TextView
+                android:id="@+id/txtTrucksNumber"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:textColor="@color/white"
+                android:background="@color/game_background"
+                android:textSize="14sp"
+                android:gravity="center"
+                android:text="Trucks: 3"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginStart="3dp"
+            android:background="@drawable/radius_corner"
+            android:orientation="vertical"
+            android:weightSum="3">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginBottom="5dp"
+                android:layout_weight="2"
+                android:scaleType="fitCenter"
+                android:src="@drawable/contratos_icon" />
+
+            <TextView
+                android:id="@+id/txtContractsNumber"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:gravity="center"
+                android:text="Contracts: 3/6"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginStart="3dp"
+            android:background="@drawable/radius_corner"
+            android:orientation="vertical"
+            android:weightSum="3">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginBottom="5dp"
+                android:layout_weight="2"
+                android:scaleType="fitCenter"
+                android:src="@drawable/medallas_icon" />
+
+            <TextView
+                android:id="@+id/txtMedalsNumber"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:gravity="center"
+                android:text="Medals: 0"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout9"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout8">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/txtSearchPlayer"
+                android:layout_width="300dp"
+                android:layout_height="30dp"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/radius_corner_white"
+                android:gravity="center_vertical"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/btnSearchPlayer"
+                android:layout_width="160dp"
+                android:layout_height="40dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/radius_corner_button"
+                android:text="BUSCAR JUGADOR"
+                android:textColor="@color/white"
+                android:textSize="12sp" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnAdministrador"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/radius_corner_button"
+        android:text="ADMINISTRADOR"
+        android:textColor="@color/white"
+        android:textSize="12sp"
+        android:paddingStart="30dp"
+        android:paddingEnd="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout9"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

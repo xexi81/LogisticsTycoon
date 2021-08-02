@@ -11,7 +11,9 @@
     <!-- GameColors !-->
     <color name="background">#9DB5C8</color>
     <color name="background2">#D4D8DC</color>
-    <color name="game_background">#1E2340</color>"
+    <color name="game_background">#3B495C</color>"
+    <color name="game_background2">#354856</color>
+    <color name="switch_pressed">#224980</color>
 
 
 

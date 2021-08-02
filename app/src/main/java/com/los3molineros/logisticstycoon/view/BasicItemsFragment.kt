@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import com.los3molineros.logisticstycoon.R
-import com.los3molineros.logisticstycoon.common.Companion.Companion.returnTypeface
+import com.los3molineros.logisticstycoon.common.Companion.Companion.returnTypefaceKingthings
 
 
 class BasicItemsFragment : Fragment() {
@@ -26,9 +26,9 @@ class BasicItemsFragment : Fragment() {
         mTxtUtils = view.findViewById(R.id.txtUtils)
 
 
-        mTxtBread.typeface = returnTypeface(view.context)
-        mTxtGasoil.typeface = returnTypeface(view.context)
-        mTxtUtils.typeface = returnTypeface(view.context)
+        mTxtBread.typeface = returnTypefaceKingthings(view.context)
+        mTxtGasoil.typeface = returnTypefaceKingthings(view.context)
+        mTxtUtils.typeface = returnTypefaceKingthings(view.context)
 
         return view
     }

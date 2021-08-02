@@ -25,13 +25,13 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.txtVersion.text = BuildConfig.VERSION_NAME
-        binding.txtVersion.typeface = Companion.returnTypeface(this)
+        binding.txtVersion.typeface = Companion.returnTypefaceKingthings(this)
 
         mainViewModel.quote.observe(this, Observer {
             if (it!=null) {
                 val strings: Int = resources.getIdentifier(it.quote, "string", packageName)
                 binding.txtQuote.text = getString(strings)
-                binding.txtQuote.typeface = Companion.returnTypeface(this)
+                binding.txtQuote.typeface = Companion.returnTypefaceKingthings(this)
             }
         })
 

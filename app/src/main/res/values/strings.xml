@@ -23,4 +23,5 @@
     // user menu
     <string name="titulo_usermenu">PERFIL DEL JUGADOR</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="level2">puntos para el siguiente nivel</string>
 </resources>

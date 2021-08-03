@@ -29,9 +29,9 @@ class UserMenu : AppCompatActivity() {
         binding.idTittle.typeface = Companion.returnTypefaceKimbalt(this)
         binding.txtUsername.typeface = Companion.returnTypefaceKingthings(this)
         binding.btnUsername.typeface = Companion.returnTypefaceKingthings(this)
-        binding.btnUsername.setShadowLayer(2F, 0F, 0F, Color.BLACK)
+        binding.btnUsername.setShadowLayer(5F, 0F, 0F, Color.BLACK)
         binding.btnAvatar.typeface = Companion.returnTypefaceKingthings(this)
-        binding.btnAvatar.setShadowLayer(2F, 0F, 0F, Color.BLACK)
+        binding.btnAvatar.setShadowLayer(5F, 0F, 0F, Color.BLACK)
         binding.txtNextLevel.text = "579 ${getString(R.string.level2)}"
         binding.txtNextLevel.typeface = Companion.returnTypefaceKingthings(this)
         binding.txtLevel.text = "NIVEL 275"
@@ -52,6 +52,7 @@ class UserMenu : AppCompatActivity() {
         binding.musicOff.typeface = Companion.returnTypefaceKingthings(this)
         binding.musicOn.typeface = Companion.returnTypefaceKingthings(this)
         binding.btnOptions.typeface = Companion.returnTypefaceKingthings(this)
+        binding.btnOptions.setShadowLayer(5F, 0F, 0F, Color.BLACK)
         binding.txtNotifications.typeface = Companion.returnTypefaceKingthings(this)
         binding.txtMusic.typeface = Companion.returnTypefaceKingthings(this)
         binding.txtSounds.typeface = Companion.returnTypefaceKingthings(this)
@@ -61,7 +62,11 @@ class UserMenu : AppCompatActivity() {
         binding.txtContractsNumber.typeface = Companion.returnTypefaceKingthings(this)
         binding.txtMedalsNumber.typeface = Companion.returnTypefaceKingthings(this)
         binding.btnAdministrador.typeface = Companion.returnTypefaceKingthings(this)
+        binding.btnAdministrador.setShadowLayer(5F, 0F, 0F, Color.BLACK)
+        binding.btnSignOut.typeface = Companion.returnTypefaceKingthings(this)
+        binding.btnSignOut.setShadowLayer(5F, 0F, 0F, Color.BLACK)
         binding.btnSearchPlayer.typeface = Companion.returnTypefaceKingthings(this)
+        binding.btnSearchPlayer.setShadowLayer(5F, 0F, 0F, Color.BLACK)
 
 
         // set on clicks

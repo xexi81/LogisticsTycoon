@@ -4,200 +4,181 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/corkboard"
+    android:background="@color/game_background"
     tools:context=".view.MenuActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:weightSum="4"
+        android:weightSum="6"
         android:orientation="vertical">
 
         <LinearLayout
+            android:id="@+id/layoutUserMenu"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:orientation="horizontal"
-            android:weightSum="2">
-
-            <RelativeLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" >
-
-
-
-                <ImageView
-                    android:id="@+id/ivPostitUser"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:layout_centerVertical="true"
-                    app:srcCompat="@drawable/postit2" />
-
-                <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/ivUserPhoto"
-                    android:layout_width="75dp"
-                    android:layout_height="75dp"
-                    android:layout_centerHorizontal="true"
-                    android:layout_centerVertical="true" />
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" >
-
-                <ImageView
-                    android:id="@+id/ivPostitTrucks"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:layout_centerVertical="true"
-                    app:srcCompat="@drawable/postit3" />
-
-                <ImageView
-                    android:id="@+id/ivTrucks"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_centerHorizontal="true"
-                    android:layout_centerVertical="true"
-                    android:src="@drawable/truck_menu" />
-            </RelativeLayout>
-
-
-
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:orientation="horizontal"
-            android:weightSum="2">
-
-            <RelativeLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" >
-
-                <ImageView
-                    android:id="@+id/ivPostitMap"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    app:srcCompat="@drawable/postit4" />
-
-                <ImageView
-                    android:id="@+id/ivMap"
-                    android:layout_width="170dp"
-                    android:layout_height="170dp"
-                    android:layout_centerHorizontal="true"
-                    android:layout_centerVertical="true"
-                    android:src="@drawable/map2_menu" />
-            </RelativeLayout>
-
-
-            <RelativeLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" >
-
-                <ImageView
-                    android:id="@+id/ivPostitHeadquarter"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:layout_centerVertical="true"
-                    app:srcCompat="@drawable/postit5" />
-
-                <ImageView
-                    android:id="@+id/ivHeadquarter"
-                    android:layout_width="150dp"
-                    android:layout_height="120dp"
-                    android:layout_centerInParent="true"
-                    android:src="@drawable/headquarter_menu" />
-            </RelativeLayout>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:orientation="horizontal"
-            android:weightSum="2">
-
-            <RelativeLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" >
-
-                <ImageView
-                    android:id="@+id/ivPostitPartnerships"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:layout_centerVertical="true"
-                    app:srcCompat="@drawable/postit6" />
-
-                <ImageView
-                    android:id="@+id/ivPartnership"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_centerHorizontal="true"
-                    android:layout_centerVertical="true"
-                    android:src="@drawable/partnership_menupng" />
-            </RelativeLayout>
+            android:layout_margin="8dp"
+            android:weightSum="3"
+            android:background="@drawable/radius_corner"
+            android:orientation="horizontal">
 
             <ImageView
-                android:id="@+id/postit9"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/postit7" />
+                android:layout_margin="5dp"
+                android:src="@drawable/user_menu"
+                android:scaleType="fitCenter" />
 
+            <TextView
+                android:id="@+id/txtUserMenu"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:text="USER"
+                android:textSize="30dp"
+                android:textColor="@color/white" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:orientation="horizontal"
-            android:weightSum="2">
+            android:layout_margin="8dp"
+            android:weightSum="3"
+            android:background="@drawable/radius_corner"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/txtTrucksMenu"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:text="TRUCKS"
+                android:textSize="30dp"
+                android:textColor="@color/white" />
 
             <ImageView
-                android:id="@+id/postit10"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/postit8" />
+                android:layout_margin="5dp"
+                android:src="@drawable/trucks_menu"
+                android:scaleType="centerCrop" />
+        </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_margin="8dp"
+            android:weightSum="3"
+            android:background="@drawable/radius_corner"
+            android:orientation="horizontal">
 
-            <RelativeLayout
+            <ImageView
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" >
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_margin="5dp"
+                android:src="@drawable/map2_menu"
+                android:scaleType="fitCenter" />
 
-                <ImageView
-                    android:id="@+id/ivPostitSignOut"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:layout_centerVertical="true"
-                    app:srcCompat="@drawable/postit10" />
+            <TextView
+                android:id="@+id/txtRoutes"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:text="ROUTES"
+                android:textSize="30dp"
+                android:textColor="@color/white" />
+        </LinearLayout>
 
-                <ImageView
-                    android:id="@+id/ivSignOut"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_centerHorizontal="true"
-                    android:layout_centerVertical="true"
-                    android:src="@drawable/signout_menu" />
-            </RelativeLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_margin="8dp"
+            android:weightSum="3"
+            android:background="@drawable/radius_corner"
+            android:orientation="horizontal">
 
+            <TextView
+                android:id="@+id/txtBaseMenu"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:text="BASE"
+                android:textSize="30dp"
+                android:textColor="@color/white" />
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_margin="5dp"
+                android:src="@drawable/headquarter_menu"
+                android:scaleType="centerCrop" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_margin="8dp"
+            android:weightSum="3"
+            android:background="@drawable/radius_corner"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_margin="5dp"
+                android:src="@drawable/partnership_menupng"
+                android:scaleType="fitCenter" />
+
+            <TextView
+                android:id="@+id/txtGroupMenu"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:text="PARTNERSHIP"
+                android:textSize="25dp"
+                android:textColor="@color/white" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_margin="8dp"
+            android:weightSum="3"
+            android:background="@drawable/radius_corner"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/txtStore"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:text="STORE"
+                android:textSize="30dp"
+                android:textColor="@color/white" />
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_margin="5dp"
+                android:src="@drawable/money_icon"
+                android:scaleType="centerCrop" />
         </LinearLayout>
 
     </LinearLayout>

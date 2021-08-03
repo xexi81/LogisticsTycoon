@@ -11,10 +11,10 @@ import androidx.activity.viewModels
 import androidx.lifecycle.Observer
 import com.los3molineros.logisticstycoon.BuildConfig
 import com.los3molineros.logisticstycoon.R
+import com.los3molineros.logisticstycoon.common.Companion
 import com.los3molineros.logisticstycoon.databinding.ActivityMenuBinding
 import com.los3molineros.logisticstycoon.model.signOutFirebase
 import com.los3molineros.logisticstycoon.viewModel.MenuViewModel
-import com.squareup.picasso.Picasso
 
 class MenuActivity : AppCompatActivity() {
     lateinit var binding: ActivityMenuBinding
@@ -25,6 +25,11 @@ class MenuActivity : AppCompatActivity() {
         binding = ActivityMenuBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.txtBaseMenu.typeface = Companion.returnTypefaceKingthings(this)
+        binding.txtGroupMenu.typeface = Companion.returnTypefaceKingthings(this)
+        binding.txtRoutes.typeface = Companion.returnTypefaceKingthings(this)
+        binding.txtTrucksMenu.typeface = Companion.returnTypefaceKingthings(this)
+        binding.txtUserMenu.typeface = Companion.returnTypefaceKingthings(this)
 
         menuViewModel.parameters.observe(this, Observer { parameters ->
             if (parameters!=null && parameters.versionCode != BuildConfig.VERSION_CODE) {
@@ -38,34 +43,13 @@ class MenuActivity : AppCompatActivity() {
             }
         }
 
-        // User Posit
-        menuViewModel.user.observe(this) {firebaseUser ->
-            Picasso.get().load(firebaseUser?.photoUrl).into(binding.ivUserPhoto)
-        }
-
-
         // ON CLICK LISTENERS
-
         // user Posit
-        binding.ivPostitUser.setOnClickListener {
+        binding.layoutUserMenu.setOnClickListener {
             startActivity(Intent(this, UserMenu::class.java))
         }
 
-
-
-
-        // Sign out Posit
-        binding.ivPostitSignOut.setOnClickListener {
-            signOutFirebase(this)
-
-            // finish all the previous activities
-            val intent = Intent(this,MainActivity::class.java)
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
-            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-            startActivity(intent)
-        }
     }
-
 
     fun showVersionDialog() {
         val dialogBuilder = AlertDialog.Builder(this)

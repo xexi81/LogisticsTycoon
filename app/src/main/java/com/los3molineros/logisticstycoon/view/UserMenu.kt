@@ -1,5 +1,6 @@
 package com.los3molineros.logisticstycoon.view
 
+import android.content.Intent
 import android.graphics.Color
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
@@ -8,7 +9,7 @@ import androidx.annotation.RequiresApi
 import com.los3molineros.logisticstycoon.R
 import com.los3molineros.logisticstycoon.common.Companion
 import com.los3molineros.logisticstycoon.databinding.ActivityUserMenuBinding
-
+import com.los3molineros.logisticstycoon.model.signOutFirebase
 
 
 class UserMenu : AppCompatActivity() {
@@ -22,7 +23,7 @@ class UserMenu : AppCompatActivity() {
 
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
-                .replace(R.id.fBasicItems, BasicItemsFragment())
+                .replace(R.id.fBasicItems, MoneyFragment())
                 .commitNow()
         }
 
@@ -72,6 +73,18 @@ class UserMenu : AppCompatActivity() {
         // set on clicks
         binding.ivExit.setOnClickListener {
             finish()
+        }
+
+
+        // Sign out Posit
+        binding.btnSignOut.setOnClickListener {
+            signOutFirebase(this)
+
+            // finish all the previous activities
+            val intent = Intent(this,MainActivity::class.java)
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            startActivity(intent)
         }
     }
 }

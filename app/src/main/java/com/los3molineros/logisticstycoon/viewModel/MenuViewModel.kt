@@ -13,13 +13,11 @@ import kotlinx.coroutines.launch
 class MenuViewModel : ViewModel() {
     val parameters = MutableLiveData<Parameters?>()
     val userExists = MutableLiveData<Boolean>()
-    val user = MutableLiveData<FirebaseUser?>()
 
     init {
         viewModelScope.launch {
             parameters.postValue(selectFirebaseParams())
             userExists.postValue(alreadyExistsUser())
-            user.postValue(returnFirebaseUser())
         }
     }
 }

@@ -5,12 +5,257 @@
     android:layout_height="match_parent"
     tools:context=".view.fragments.TruckFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:textColor="@color/white"
-        android:text="Truck Fragment" />
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:orientation="horizontal"
+            android:weightSum="2">
+            <ImageView
+                android:id="@+id/ivTruck1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/radius_corner"
+                android:layout_margin="5dp"
+                android:src="@drawable/plus_icon"
+                android:scaleType="centerCrop"/>
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/radius_corner"
+                android:layout_margin="5dp">
+                <ImageView
+                    android:id="@+id/ivTruck2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/trucks_menu"
+                    android:visibility="gone"/>
+
+                <TextView
+                    android:id="@+id/txtTruck2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="Unlock at level 5"
+                    android:textColor="@color/white"
+                    android:textSize="20sp" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:orientation="horizontal"
+            android:weightSum="2">
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/radius_corner"
+                android:layout_margin="5dp">
+                <ImageView
+                    android:id="@+id/ivTruck3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/trucks_menu"
+                    android:visibility="gone"/>
+
+                <TextView
+                    android:id="@+id/txtTruck3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Unlock at level 10"
+                    android:gravity="center"
+                    android:textColor="@color/white"
+                    android:textSize="20sp" />
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/radius_corner"
+                android:layout_margin="5dp">
+                <ImageView
+                    android:id="@+id/ivTruck4"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/trucks_menu"
+                    android:visibility="gone"/>
+
+                <TextView
+                    android:id="@+id/txtTruck4"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Unlock at level 20"
+                    android:gravity="center"
+                    android:textColor="@color/white"
+                    android:textSize="20sp" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout3"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:orientation="horizontal"
+            android:weightSum="2">
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/radius_corner"
+                android:layout_margin="5dp">
+                <ImageView
+                    android:id="@+id/ivTruck5"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/trucks_menu"
+                    android:visibility="gone"/>
+
+                <TextView
+                    android:id="@+id/txtTruck5"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="Unlock at level 50"
+                    android:textColor="@color/white"
+                    android:textSize="20sp" />
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/radius_corner"
+                android:layout_margin="5dp">
+                <ImageView
+                    android:id="@+id/ivTruck6"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/trucks_menu"
+                    android:visibility="gone"/>
+
+                <TextView
+                    android:id="@+id/txtTruck6"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Unlock at level 80"
+                    android:gravity="center"
+                    android:textColor="@color/white"
+                    android:textSize="20sp" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout4"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:orientation="horizontal"
+            android:weightSum="2">
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/radius_corner"
+                android:layout_margin="5dp">
+                <ImageView
+                    android:id="@+id/ivTruck7"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/trucks_menu"
+                    android:visibility="gone"/>
+
+                <TextView
+                    android:id="@+id/txtTruck7"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Unlock at level 100"
+                    android:gravity="center"
+                    android:textColor="@color/white"
+                    android:textSize="20sp" />
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/radius_corner"
+                android:layout_margin="5dp">
+                <ImageView
+                    android:id="@+id/ivTruck8"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/trucks_menu"
+                    android:visibility="gone"/>
+
+                <TextView
+                    android:id="@+id/txtTruck8"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Unlock at level 150"
+                    android:gravity="center"
+                    android:textColor="@color/white"
+                    android:textSize="20sp" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout5"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:orientation="horizontal"
+            android:weightSum="2">
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/radius_corner"
+                android:layout_margin="5dp">
+                <ImageView
+                    android:id="@+id/ivTruck9"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/trucks_menu"
+                    android:visibility="gone"/>
+
+                <TextView
+                    android:id="@+id/txtTruck9"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Unlock at level 300"
+                    android:gravity="center"
+                    android:textColor="@color/white"
+                    android:textSize="20sp" />
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/radius_corner"
+                android:layout_margin="5dp">
+                <ImageView
+                    android:id="@+id/ivTruck10"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/trucks_menu"
+                    android:visibility="gone"/>
+
+                <TextView
+                    android:id="@+id/txtTruck10"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Unlock at level 500"
+                    android:gravity="center"
+                    android:textColor="@color/white"
+                    android:textSize="20sp" />
+            </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
 
 </FrameLayout>

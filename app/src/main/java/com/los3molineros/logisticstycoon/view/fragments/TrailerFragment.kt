@@ -5,56 +5,53 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import com.los3molineros.logisticstycoon.R
+import com.los3molineros.logisticstycoon.common.Companion
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [TrailerFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class TrailerFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
-
+    lateinit var mTxtTrailer2: TextView
+    lateinit var mTxtTrailer3: TextView
+    lateinit var mTxtTrailer4: TextView
+    lateinit var mTxtTrailer5: TextView
+    lateinit var mTxtTrailer6: TextView
+    lateinit var mTxtTrailer7: TextView
+    lateinit var mTxtTrailer8: TextView
+    lateinit var mTxtTrailer9: TextView
+    lateinit var mTxtTrailer10: TextView
+    
+    
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_trailer, container, false)
-    }
+        val view = inflater.inflate(R.layout.fragment_trailer, container, false)
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment TrailerFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            TrailerFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+        mTxtTrailer2 = view.findViewById(R.id.txtTrailer2)
+        mTxtTrailer3 = view.findViewById(R.id.txtTrailer3)
+        mTxtTrailer4 = view.findViewById(R.id.txtTrailer4)
+        mTxtTrailer5 = view.findViewById(R.id.txtTrailer5)
+        mTxtTrailer6 = view.findViewById(R.id.txtTrailer6)
+        mTxtTrailer7 = view.findViewById(R.id.txtTrailer7)
+        mTxtTrailer8 = view.findViewById(R.id.txtTrailer8)
+        mTxtTrailer9 = view.findViewById(R.id.txtTrailer9)
+        mTxtTrailer10 = view.findViewById(R.id.txtTrailer10)
+
+
+        mTxtTrailer2.typeface = Companion.returnTypefaceKingthings(view.context)
+        mTxtTrailer3.typeface = Companion.returnTypefaceKingthings(view.context)
+        mTxtTrailer4.typeface = Companion.returnTypefaceKingthings(view.context)
+        mTxtTrailer5.typeface = Companion.returnTypefaceKingthings(view.context)
+        mTxtTrailer6.typeface = Companion.returnTypefaceKingthings(view.context)
+        mTxtTrailer7.typeface = Companion.returnTypefaceKingthings(view.context)
+        mTxtTrailer8.typeface = Companion.returnTypefaceKingthings(view.context)
+        mTxtTrailer9.typeface = Companion.returnTypefaceKingthings(view.context)
+        mTxtTrailer10.typeface = Companion.returnTypefaceKingthings(view.context)
+        
+        
+        return view
     }
+    
 }

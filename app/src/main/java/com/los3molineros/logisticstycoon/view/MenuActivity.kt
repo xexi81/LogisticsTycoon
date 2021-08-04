@@ -53,6 +53,11 @@ class MenuActivity : AppCompatActivity() {
             startActivity(Intent(this, TruckMenuActivity::class.java))
         }
 
+        binding.layoutHeadquarterMenu.setOnClickListener {
+            startActivity(Intent(this, HeadquarterActivity::class.java))
+        }
+
+
     }
 
     fun showVersionDialog() {

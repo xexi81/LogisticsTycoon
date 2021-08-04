@@ -26,4 +26,5 @@
 
     // truck menu
     <string name="titulo_truckmenu">MENÚ CAMIONES</string>
+    <string name="titulo_headquarter_menu">MENÚ BASE</string>
 </resources>

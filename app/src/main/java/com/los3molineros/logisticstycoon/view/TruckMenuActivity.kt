@@ -3,6 +3,7 @@ package com.los3molineros.logisticstycoon.view
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.los3molineros.logisticstycoon.R
+import com.los3molineros.logisticstycoon.common.Companion
 import com.los3molineros.logisticstycoon.databinding.ActivityTruckMenuBinding
 import com.los3molineros.logisticstycoon.view.fragments.ConductorFragment
 import com.los3molineros.logisticstycoon.view.fragments.MoneyFragment
@@ -28,8 +29,10 @@ class TruckMenuActivity : AppCompatActivity() {
         }
 
         binding.txtTrucksOption.setBackgroundResource(R.drawable.radius_corner_selected)
-
-
+        binding.idTittle.typeface = Companion.returnTypefaceKimbalt(this)
+        binding.txtTrucksOption.typeface = Companion.returnTypefaceKingthings(this)
+        binding.txtTrailersOption.typeface = Companion.returnTypefaceKingthings(this)
+        binding.txtChofferOption.typeface = Companion.returnTypefaceKingthings(this)
 
 
 

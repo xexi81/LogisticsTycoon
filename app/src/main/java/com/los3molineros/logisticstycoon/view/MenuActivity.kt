@@ -13,7 +13,6 @@ import com.los3molineros.logisticstycoon.BuildConfig
 import com.los3molineros.logisticstycoon.R
 import com.los3molineros.logisticstycoon.common.Companion
 import com.los3molineros.logisticstycoon.databinding.ActivityMenuBinding
-import com.los3molineros.logisticstycoon.model.signOutFirebase
 import com.los3molineros.logisticstycoon.viewModel.MenuViewModel
 
 class MenuActivity : AppCompatActivity() {
@@ -30,6 +29,7 @@ class MenuActivity : AppCompatActivity() {
         binding.txtRoutes.typeface = Companion.returnTypefaceKingthings(this)
         binding.txtTrucksMenu.typeface = Companion.returnTypefaceKingthings(this)
         binding.txtUserMenu.typeface = Companion.returnTypefaceKingthings(this)
+        binding.txtStore.typeface = Companion.returnTypefaceKingthings(this)
 
         menuViewModel.parameters.observe(this, Observer { parameters ->
             if (parameters!=null && parameters.versionCode != BuildConfig.VERSION_CODE) {
@@ -46,7 +46,11 @@ class MenuActivity : AppCompatActivity() {
         // ON CLICK LISTENERS
         // user Posit
         binding.layoutUserMenu.setOnClickListener {
-            startActivity(Intent(this, UserMenu::class.java))
+            startActivity(Intent(this, UserMenuActivity::class.java))
+        }
+
+        binding.layoutTruckMenu.setOnClickListener {
+            startActivity(Intent(this, TruckMenuActivity::class.java))
         }
 
     }

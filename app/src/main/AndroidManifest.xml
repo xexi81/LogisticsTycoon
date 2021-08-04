@@ -10,7 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LogisticsTycoon">
         <activity
-            android:name=".view.UserMenu"
+            android:name=".view.TruckMenuActivity"
+            android:exported="true" />
+        <activity
+            android:name=".view.UserMenuActivity"
             android:exported="true" />
         <activity
             android:name=".view.MenuActivity"

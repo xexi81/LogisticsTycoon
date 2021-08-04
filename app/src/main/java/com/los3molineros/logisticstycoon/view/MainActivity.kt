@@ -3,6 +3,7 @@ package com.los3molineros.logisticstycoon.view
 import android.content.Intent
 import android.graphics.Typeface
 import android.os.Bundle
+import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer

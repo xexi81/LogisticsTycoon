@@ -10,9 +10,10 @@ import com.los3molineros.logisticstycoon.R
 import com.los3molineros.logisticstycoon.common.Companion
 import com.los3molineros.logisticstycoon.databinding.ActivityUserMenuBinding
 import com.los3molineros.logisticstycoon.model.signOutFirebase
+import com.los3molineros.logisticstycoon.view.fragments.MoneyFragment
 
 
-class UserMenu : AppCompatActivity() {
+class UserMenuActivity : AppCompatActivity() {
     lateinit var binding: ActivityUserMenuBinding
 
     @RequiresApi(Build.VERSION_CODES.Q)
@@ -20,6 +21,7 @@ class UserMenu : AppCompatActivity() {
         binding = ActivityUserMenuBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+
 
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()

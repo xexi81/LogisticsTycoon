@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="50dp"
-    tools:context=".view.MoneyFragment">
+    tools:context=".view.fragments.MoneyFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -32,8 +32,8 @@
                 android:padding="5dp"
                 android:layout_gravity="start|center_vertical"
                 android:textColor="@color/white"
-                android:textSize="12sp"
-                android:text="9.000.000"/>
+                android:textSize="16sp"
+                android:text="5486"/>
 
         </LinearLayout>
 
@@ -58,7 +58,7 @@
                 android:padding="5dp"
                 android:layout_gravity="start|center_vertical"
                 android:textColor="@color/white"
-                android:textSize="12sp"
+                android:textSize="16sp"
                 android:text="9.000.000"/>
 
         </LinearLayout>

@@ -3,6 +3,7 @@ package com.los3molineros.logisticstycoon.view
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.activity.viewModels
 import androidx.core.app.ActivityCompat
 import com.google.android.gms.auth.api.Auth

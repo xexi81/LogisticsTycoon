@@ -13,7 +13,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context=".view.UserMenuActivity">
+    tools:context=".view.userMenu.UserMenuActivity">
 
     <TextView
         android:id="@+id/idTittle"
@@ -54,7 +54,7 @@
             android:id="@+id/fBasicItems"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:context=".view.UserMenuActivity" />
+            tools:context=".view.userMenu.UserMenuActivity" />
 
 
     </LinearLayout>

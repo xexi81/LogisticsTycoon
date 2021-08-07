@@ -1,4 +1,4 @@
-package com.los3molineros.logisticstycoon.view
+package com.los3molineros.logisticstycoon.view.userMenu
 
 import android.content.Intent
 import android.graphics.Color
@@ -10,6 +10,7 @@ import com.los3molineros.logisticstycoon.R
 import com.los3molineros.logisticstycoon.common.Companion
 import com.los3molineros.logisticstycoon.databinding.ActivityUserMenuBinding
 import com.los3molineros.logisticstycoon.model.signOutFirebase
+import com.los3molineros.logisticstycoon.view.MainActivity
 import com.los3molineros.logisticstycoon.view.fragments.MoneyFragment
 
 
@@ -83,7 +84,7 @@ class UserMenuActivity : AppCompatActivity() {
             signOutFirebase(this)
 
             // finish all the previous activities
-            val intent = Intent(this,MainActivity::class.java)
+            val intent = Intent(this, MainActivity::class.java)
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
             startActivity(intent)

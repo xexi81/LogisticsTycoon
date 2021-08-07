@@ -1,4 +1,4 @@
-package com.los3molineros.logisticstycoon.view
+package com.los3molineros.logisticstycoon.view.trucksMenu
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

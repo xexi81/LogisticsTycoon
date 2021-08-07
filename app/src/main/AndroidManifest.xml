@@ -10,16 +10,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LogisticsTycoon">
         <activity
-            android:name=".view.PartnershipActivity"
+            android:name=".view.partnershipMenu.PartnershipActivity"
             android:exported="true" />
         <activity
-            android:name=".view.HeadquarterActivity"
+            android:name=".view.headquarterMenu.HeadquarterActivity"
             android:exported="true" />
         <activity
-            android:name=".view.TruckMenuActivity"
+            android:name=".view.trucksMenu.TruckMenuActivity"
             android:exported="true" />
         <activity
-            android:name=".view.UserMenuActivity"
+            android:name=".view.userMenu.UserMenuActivity"
             android:exported="true" />
         <activity
             android:name=".view.MenuActivity"

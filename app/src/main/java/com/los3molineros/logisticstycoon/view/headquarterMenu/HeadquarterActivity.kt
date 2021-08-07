@@ -1,4 +1,4 @@
-package com.los3molineros.logisticstycoon.view
+package com.los3molineros.logisticstycoon.view.headquarterMenu
 
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity

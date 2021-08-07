@@ -13,6 +13,10 @@ import com.los3molineros.logisticstycoon.BuildConfig
 import com.los3molineros.logisticstycoon.R
 import com.los3molineros.logisticstycoon.common.Companion
 import com.los3molineros.logisticstycoon.databinding.ActivityMenuBinding
+import com.los3molineros.logisticstycoon.view.headquarterMenu.HeadquarterActivity
+import com.los3molineros.logisticstycoon.view.partnershipMenu.PartnershipActivity
+import com.los3molineros.logisticstycoon.view.trucksMenu.TruckMenuActivity
+import com.los3molineros.logisticstycoon.view.userMenu.UserMenuActivity
 import com.los3molineros.logisticstycoon.viewModel.MenuViewModel
 
 class MenuActivity : AppCompatActivity() {

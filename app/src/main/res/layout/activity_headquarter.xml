@@ -13,7 +13,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:context=".view.HeadquarterActivity">
+        tools:context=".view.headquarterMenu.HeadquarterActivity">
 
         <TextView
             android:id="@+id/txtTittle"
@@ -54,7 +54,7 @@
                 android:id="@+id/moneyFragment"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                tools:context=".view.HeadquarterActivity" />
+                tools:context=".view.headquarterMenu.HeadquarterActivity" />
         </LinearLayout>
 
         <RelativeLayout

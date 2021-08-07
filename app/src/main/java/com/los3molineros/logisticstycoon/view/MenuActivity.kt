@@ -57,6 +57,10 @@ class MenuActivity : AppCompatActivity() {
             startActivity(Intent(this, HeadquarterActivity::class.java))
         }
 
+        binding.layoutPartnership.setOnClickListener {
+            startActivity(Intent(this, PartnershipActivity::class.java))
+        }
+
 
     }
 

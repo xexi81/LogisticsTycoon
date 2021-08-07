@@ -26,5 +26,12 @@
 
     // truck menu
     <string name="titulo_truckmenu">MENÚ CAMIONES</string>
+
+    // headquarter menu
     <string name="titulo_headquarter_menu">MENÚ BASE</string>
+
+    // Partnership menu
+    <string name="titulo_partnership">MENÚ ASOCIACIÓN</string>
+
+
 </resources>

@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LogisticsTycoon">
         <activity
+            android:name=".view.PartnershipActivity"
+            android:exported="true" />
+        <activity
             android:name=".view.HeadquarterActivity"
             android:exported="true" />
         <activity

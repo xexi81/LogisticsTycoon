@@ -14,8 +14,7 @@
         android:layout_height="150dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:src="@drawable/inicio_tittle"/>
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <TextView
         android:id="@+id/txtQuote"
@@ -24,6 +23,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toTopOf="@id/txtVersion"
+        android:gravity="center_horizontal"
+        android:layout_margin="8dp"
         android:textColor="@color/white"
         android:layout_marginBottom="10dp"/>
 

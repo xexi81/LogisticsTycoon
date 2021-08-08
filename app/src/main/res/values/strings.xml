@@ -1,10 +1,15 @@
 <resources>
     <string name="app_name">Logistics Tycoon</string>
 
+    // MainActivity
+    <string name="version">Version </string>
+    <string name="tittle_image">"gs://logistics-tycoon.appspot.com/inicio_tittle.png"</string>
+
+
     // quotes
-    <string name="quote1">"Luis es un poco marikita"</string>
-    <string name="quote2">"Josep es un poco gay"</string>
-    <string name="quote3">"Luis es halterofílico"</string>
+    <string name="quote1">"You can search players in User Menu"</string>
+    <string name="quote2">"Trucks go at real speed unless you buy speed bonuses"</string>
+    <string name="quote3">"At level 50 you can enter a partnership"</string>
 
     // actualizaciones disponibles
     <string name="actTitulo">Actualización disponible</string>

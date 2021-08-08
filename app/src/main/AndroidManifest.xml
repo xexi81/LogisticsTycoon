@@ -11,23 +11,29 @@
         android:theme="@style/Theme.LogisticsTycoon">
         <activity
             android:name=".view.partnershipMenu.PartnershipActivity"
+            android:screenOrientation="portrait"
             android:exported="true" />
         <activity
             android:name=".view.headquarterMenu.HeadquarterActivity"
+            android:screenOrientation="portrait"
             android:exported="true" />
         <activity
             android:name=".view.trucksMenu.TruckMenuActivity"
+            android:screenOrientation="portrait"
             android:exported="true" />
         <activity
             android:name=".view.userMenu.UserMenuActivity"
+            android:screenOrientation="portrait"
             android:exported="true" />
         <activity
             android:name=".view.MenuActivity"
+            android:screenOrientation="portrait"
             android:exported="true" />
         <activity
             android:name=".view.LoginActivity"
+            android:screenOrientation="portrait"
             android:exported="true" />
-        <activity android:name=".view.MainActivity">
+        <activity android:name=".view.MainActivity" android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

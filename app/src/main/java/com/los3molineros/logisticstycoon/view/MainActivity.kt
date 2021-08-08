@@ -4,7 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Observer
 import com.los3molineros.logisticstycoon.BuildConfig
 import com.los3molineros.logisticstycoon.R
 import com.los3molineros.logisticstycoon.common.Companion
@@ -39,7 +38,7 @@ class MainActivity : AppCompatActivity() {
 
 
         // Quotes
-        mainViewModel.quote.observe(this, Observer {
+        mainViewModel.quote.observe(this, {
             if (it!=null) {
                 val strings: Int = resources.getIdentifier(it.quote, "string", packageName)
                 binding.txtQuote.text = getString(strings)
@@ -48,7 +47,7 @@ class MainActivity : AppCompatActivity() {
         })
 
         // Delay of 3 secs and navigation to Menu or Login
-        mainViewModel.userExists.observe(this, Observer { userExists ->
+        mainViewModel.userExists.observe(this, { userExists ->
             CoroutineScope(Dispatchers.IO).launch {
                 delay(TimeUnit.SECONDS.toMillis(3))
                 withContext(Dispatchers.Main) {

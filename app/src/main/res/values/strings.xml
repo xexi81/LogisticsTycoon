@@ -4,6 +4,7 @@
     // MainActivity
     <string name="version">Version </string>
     <string name="tittle_image">"gs://logistics-tycoon.appspot.com/inicio_tittle.png"</string>
+    <string name="content_desc_tittle">App tittle</string>
 
 
     // quotes

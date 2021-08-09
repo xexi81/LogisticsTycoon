@@ -42,10 +42,13 @@ class MenuActivity : AppCompatActivity() {
         })
 
         menuViewModel.userExists.observe(this) { userExists ->
-            if (!userExists) {
+            if (userExists) {
+                menuViewModel.insertOrUpdateUser()
+            } else {
                 startActivity(Intent(this, MainActivity::class.java))
             }
         }
+
 
         // ON CLICK LISTENERS
         // user Posit

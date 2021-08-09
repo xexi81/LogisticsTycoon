@@ -32,8 +32,7 @@
                 android:padding="5dp"
                 android:layout_gravity="start|center_vertical"
                 android:textColor="@color/white"
-                android:textSize="16sp"
-                android:text="5486"/>
+                android:textSize="16sp"/>
 
         </LinearLayout>
 
@@ -58,8 +57,7 @@
                 android:padding="5dp"
                 android:layout_gravity="start|center_vertical"
                 android:textColor="@color/white"
-                android:textSize="16sp"
-                android:text="9.000.000"/>
+                android:textSize="16sp"/>
 
         </LinearLayout>
     </LinearLayout>

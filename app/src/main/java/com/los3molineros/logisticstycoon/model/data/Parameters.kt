@@ -1,3 +1,3 @@
 package com.los3molineros.logisticstycoon.model.data
 
-data class Parameters (var versionCode: Int = 0)
+data class Parameters (val versionCode: Int = 0, val initialGems: Int = 0, val initialMoney: Int = 0)

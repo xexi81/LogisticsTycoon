@@ -24,11 +24,11 @@
             android:orientation="horizontal">
 
             <ImageView
+                android:id="@+id/ivUser"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:layout_margin="5dp"
-                android:src="@drawable/user_menu"
                 android:scaleType="fitCenter" />
 
             <TextView
@@ -38,7 +38,7 @@
                 android:layout_weight="2"
                 android:layout_marginEnd="8dp"
                 android:gravity="center_vertical|end"
-                android:text="USER"
+                android:text="@string/userMenu"
                 android:textSize="30sp"
                 android:textColor="@color/white" />
         </LinearLayout>
@@ -60,16 +60,16 @@
                 android:layout_weight="2"
                 android:layout_marginStart="8dp"
                 android:gravity="center_vertical|start"
-                android:text="TRUCKS"
+                android:text="@string/trucksMenu"
                 android:textSize="30sp"
                 android:textColor="@color/white" />
 
             <ImageView
+                android:id="@+id/ivTrucks"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:layout_margin="5dp"
-                android:src="@drawable/trucks_menu"
                 android:scaleType="centerCrop" />
         </LinearLayout>
 
@@ -83,11 +83,11 @@
             android:orientation="horizontal">
 
             <ImageView
+                android:id="@+id/ivRoutes"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:layout_margin="5dp"
-                android:src="@drawable/map2_menu"
                 android:scaleType="fitCenter" />
 
             <TextView
@@ -97,7 +97,7 @@
                 android:layout_weight="2"
                 android:layout_marginEnd="8dp"
                 android:gravity="center_vertical|end"
-                android:text="ROUTES"
+                android:text="@string/routesMenu"
                 android:textSize="30sp"
                 android:textColor="@color/white" />
         </LinearLayout>
@@ -119,16 +119,16 @@
                 android:layout_weight="2"
                 android:layout_marginStart="8dp"
                 android:gravity="center_vertical|start"
-                android:text="HEADQUARTER"
+                android:text="@string/headquarterMenu"
                 android:textSize="25sp"
                 android:textColor="@color/white" />
 
             <ImageView
+                android:id="@+id/ivHeadquarter"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:layout_margin="5dp"
-                android:src="@drawable/headquarter_menu"
                 android:scaleType="centerCrop" />
         </LinearLayout>
 
@@ -143,11 +143,11 @@
             android:orientation="horizontal">
 
             <ImageView
+                android:id="@+id/ivPartnership"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:layout_margin="5dp"
-                android:src="@drawable/partnership_menupng"
                 android:scaleType="fitCenter" />
 
             <TextView
@@ -157,7 +157,7 @@
                 android:layout_weight="2"
                 android:layout_marginEnd="8dp"
                 android:gravity="center_vertical|end"
-                android:text="PARTNERSHIP"
+                android:text="@string/partnershipMenu"
                 android:textSize="25sp"
                 android:textColor="@color/white" />
         </LinearLayout>
@@ -177,16 +177,16 @@
                 android:layout_weight="2"
                 android:layout_marginStart="8dp"
                 android:gravity="center_vertical|start"
-                android:text="STORE"
+                android:text="@string/storeMenu"
                 android:textSize="30sp"
                 android:textColor="@color/white" />
 
             <ImageView
+                android:id="@+id/ivStore"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:layout_margin="5dp"
-                android:src="@drawable/money_icon"
                 android:scaleType="centerCrop" />
         </LinearLayout>
 

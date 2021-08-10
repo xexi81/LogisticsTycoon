@@ -3,32 +3,55 @@
 
     // MainActivity
     <string name="version">Version </string>
-    <string name="tittle_image">"gs://logistics-tycoon.appspot.com/inicio_tittle.png"</string>
+    <string name="tittle_image">gs://logistics-tycoon.appspot.com/inicio_tittle.png</string>
     <string name="content_desc_tittle">App tittle</string>
 
-
     // quotes
-    <string name="quote1">"You can search players in User Menu"</string>
-    <string name="quote2">"Trucks go at real speed unless you buy speed bonuses"</string>
-    <string name="quote3">"At level 50 you can enter a partnership"</string>
+    <string name="quote1">You can search players in User Menu</string>
+    <string name="quote2">Trucks go at real speed unless you buy speed bonuses</string>
+    <string name="quote3">At level 50 you can enter a partnership"</string>
+    <string name="quote4">You can change your nickname in user menu</string>
+    <string name="quote5">You can change your avatar in user menu</string>
+    <string name="quote6">Adjust your settings in user menu</string>
+    <string name="quote7">Set up your nickname and your base location to start to play</string>
 
     // actualizaciones disponibles
-    <string name="actTitulo">Actualización disponible</string>
-    <string name="actDescripcion">¿Desea descargar la actualización?</string>
-    <string name="actSi">Actualizar</string>
-    <string name="actNo">Ahora no</string>
+    <string name="actTitulo">Update avalaible</string>
+    <string name="actDescripcion">Do you want to download the update?</string>
+    <string name="actSi">Update</string>
+    <string name="actNo">Not now</string>
+
+    // MainMenu
+    <string name="userMenu">USER</string>
+    <string name="userMenuImage">gs://logistics-tycoon.appspot.com/user_menu.png</string>
+    <string name="trucksMenu">TRUCKS</string>
+    <string name="trucksMenuImage">gs://logistics-tycoon.appspot.com/trucks_menu.png</string>
+    <string name="routesMenu">ROUTES</string>
+    <string name="routesMenuImage">gs://logistics-tycoon.appspot.com/map2_menu.png</string>
+    <string name="headquarterMenu">HEADQUARTER</string>
+    <string name="headquarterMenuImage">gs://logistics-tycoon.appspot.com/headquarter_menu.png</string>
+    <string name="partnershipMenu">PARTNERSHIP</string>
+    <string name="partnershipMenuImage">gs://logistics-tycoon.appspot.com/partnership_menu.png</string>
+    <string name="storeMenu">STORE</string>
+    <string name="storeMenuImage">gs://logistics-tycoon.appspot.com/money_icon.png</string>
 
     // login
-    <string name="password_remember">Recordar password</string>
-    <string name="username_or_email">usuario o email</string>
+    <string name="password_remember">Remember password</string>
+    <string name="username_or_email">user or email</string>
     <string name="password">password</string>
-    <string name="log_in">acceder</string>
-    <string name="register">regístrate</string>
-    <string name="or">o</string>
+    <string name="log_in">Log in</string>
+    <string name="register">Register</string>
+    <string name="or">OR</string>
+
+    // first fields
+    <string name="titulo_first_fields">LET\'S BEGIN!</string>
+    <string name="new_nickname">Choose your nickname:</string>
+    <string name="new_base">Choose your base location:</string>
 
     // user menu
     <string name="titulo_usermenu">PERFIL DEL JUGADOR</string>
-    <string name="level2">puntos para el siguiente nivel</string>
+    <string name="boton_editar_nombre">EDIT</string>
+    <string name="level2">points needed for next level</string>
 
     // truck menu
     <string name="titulo_truckmenu">MENÚ CAMIONES</string>
@@ -38,8 +61,5 @@
 
     // Partnership menu
     <string name="titulo_partnership">MENÚ ASOCIACIÓN</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-
 
 </resources>

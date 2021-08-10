@@ -23,13 +23,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        // load Images from Storage cloud Firebase
-        mainViewModel.returnTittle(getString(R.string.tittle_image))
-
-        mainViewModel.tittleImage.observe(this) { tittle ->
-            Picasso.get().load(tittle).into(binding.ivTittle)
-        }
-
 
         // Text Style
         val text = "${getString(R.string.version)} ${BuildConfig.VERSION_NAME} "

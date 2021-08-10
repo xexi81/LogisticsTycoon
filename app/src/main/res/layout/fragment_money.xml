@@ -20,9 +20,9 @@
 
 
             <ImageView
+                android:id="@+id/ivMoney"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:src="@drawable/money_icon"
                 android:layout_gravity="start|center_vertical"/>
 
             <TextView
@@ -45,9 +45,9 @@
             android:layout_margin="5dp">
 
             <ImageView
+                android:id="@+id/ivGems"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:src="@drawable/gem_icon"
                 android:layout_gravity="start|center_vertical"/>
 
             <TextView

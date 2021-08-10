@@ -1,12 +1,14 @@
 package com.los3molineros.logisticstycoon.view
 
 import android.app.AlertDialog
+import android.app.Dialog
 import android.content.ActivityNotFoundException
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Window
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
 import com.los3molineros.logisticstycoon.BuildConfig
@@ -18,6 +20,7 @@ import com.los3molineros.logisticstycoon.view.partnershipMenu.PartnershipActivit
 import com.los3molineros.logisticstycoon.view.trucksMenu.TruckMenuActivity
 import com.los3molineros.logisticstycoon.view.userMenu.UserMenuActivity
 import com.los3molineros.logisticstycoon.viewModel.MenuViewModel
+import com.squareup.picasso.Picasso
 
 class MenuActivity : AppCompatActivity() {
     lateinit var binding: ActivityMenuBinding
@@ -50,24 +53,82 @@ class MenuActivity : AppCompatActivity() {
         }
 
 
+        // load Images from Storage cloud Firebase
+        menuViewModel.returnUserMenuImage(getString(R.string.userMenuImage))
+
+        menuViewModel.userMenuImage.observe(this) { tittle ->
+            Picasso.get().load(tittle).into(binding.ivUser)
+        }
+
+        menuViewModel.returnTrucksMenuImage(getString(R.string.trucksMenuImage))
+
+        menuViewModel.trucksMenuImage.observe(this) { tittle ->
+            Picasso.get().load(tittle).into(binding.ivTrucks)
+        }
+
+        menuViewModel.returnRoutesMenuImage(getString(R.string.routesMenuImage))
+
+        menuViewModel.routesMenuImage.observe(this) { tittle ->
+            Picasso.get().load(tittle).into(binding.ivRoutes)
+        }
+
+        menuViewModel.returnHeadquarterMenuImage(getString(R.string.headquarterMenuImage))
+
+        menuViewModel.headquarterMenuImage.observe(this) { tittle ->
+            Picasso.get().load(tittle).into(binding.ivHeadquarter)
+        }
+
+        menuViewModel.returnPartnershipMenuImage(getString(R.string.partnershipMenuImage))
+
+        menuViewModel.partnershipMenuImage.observe(this) { tittle ->
+            Picasso.get().load(tittle).into(binding.ivPartnership)
+        }
+
+        menuViewModel.returnStoreMenuImage(getString(R.string.storeMenuImage))
+
+        menuViewModel.storeMenuImage.observe(this) { tittle ->
+            Picasso.get().load(tittle).into(binding.ivStore)
+        }
+
+
+
         // ON CLICK LISTENERS
         // user Posit
-        binding.layoutUserMenu.setOnClickListener {
-            startActivity(Intent(this, UserMenuActivity::class.java))
-        }
+        menuViewModel.user.observe(this) {
+            if (it?.nickname == null) {
+                binding.layoutUserMenu.setOnClickListener {
+                    startActivity(Intent(this, FirstFieldsActivity::class.java))
+                }
 
-        binding.layoutTruckMenu.setOnClickListener {
-            startActivity(Intent(this, TruckMenuActivity::class.java))
-        }
+                binding.layoutTruckMenu.setOnClickListener {
+                    startActivity(Intent(this, FirstFieldsActivity::class.java))
+                }
 
-        binding.layoutHeadquarterMenu.setOnClickListener {
-            startActivity(Intent(this, HeadquarterActivity::class.java))
-        }
+                binding.layoutHeadquarterMenu.setOnClickListener {
+                    startActivity(Intent(this, FirstFieldsActivity::class.java))
+                }
 
-        binding.layoutPartnership.setOnClickListener {
-            startActivity(Intent(this, PartnershipActivity::class.java))
-        }
+                binding.layoutPartnership.setOnClickListener {
+                    startActivity(Intent(this, FirstFieldsActivity::class.java))
+                }
+            } else {
+                binding.layoutUserMenu.setOnClickListener {
+                    startActivity(Intent(this, UserMenuActivity::class.java))
+                }
 
+                binding.layoutTruckMenu.setOnClickListener {
+                    startActivity(Intent(this, TruckMenuActivity::class.java))
+                }
+
+                binding.layoutHeadquarterMenu.setOnClickListener {
+                    startActivity(Intent(this, HeadquarterActivity::class.java))
+                }
+
+                binding.layoutPartnership.setOnClickListener {
+                    startActivity(Intent(this, PartnershipActivity::class.java))
+                }
+            }
+        }
 
     }
 

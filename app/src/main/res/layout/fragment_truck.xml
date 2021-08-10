@@ -35,7 +35,7 @@
                     android:id="@+id/ivTruck2"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@drawable/trucks_menu"
+                    android:src="@drawable/bread_icon"
                     android:visibility="gone"/>
 
                 <TextView
@@ -65,7 +65,7 @@
                     android:id="@+id/ivTruck3"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@drawable/trucks_menu"
+                    android:src="@drawable/bread_icon"
                     android:visibility="gone"/>
 
                 <TextView
@@ -87,7 +87,7 @@
                     android:id="@+id/ivTruck4"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@drawable/trucks_menu"
+                    android:src="@drawable/bread_icon"
                     android:visibility="gone"/>
 
                 <TextView
@@ -117,7 +117,7 @@
                     android:id="@+id/ivTruck5"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@drawable/trucks_menu"
+                    android:src="@drawable/bread_icon"
                     android:visibility="gone"/>
 
                 <TextView
@@ -139,7 +139,7 @@
                     android:id="@+id/ivTruck6"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@drawable/trucks_menu"
+                    android:src="@drawable/bread_icon"
                     android:visibility="gone"/>
 
                 <TextView
@@ -169,7 +169,7 @@
                     android:id="@+id/ivTruck7"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@drawable/trucks_menu"
+                    android:src="@drawable/bread_icon"
                     android:visibility="gone"/>
 
                 <TextView
@@ -191,7 +191,7 @@
                     android:id="@+id/ivTruck8"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@drawable/trucks_menu"
+                    android:src="@drawable/bread_icon"
                     android:visibility="gone"/>
 
                 <TextView
@@ -221,7 +221,7 @@
                     android:id="@+id/ivTruck9"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@drawable/trucks_menu"
+                    android:src="@drawable/bread_icon"
                     android:visibility="gone"/>
 
                 <TextView
@@ -243,7 +243,7 @@
                     android:id="@+id/ivTruck10"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@drawable/trucks_menu"
+                    android:src="@drawable/bread_icon"
                     android:visibility="gone"/>
 
                 <TextView

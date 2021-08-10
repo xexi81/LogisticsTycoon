@@ -47,6 +47,9 @@
     <string name="titulo_first_fields">LET\'S BEGIN!</string>
     <string name="new_nickname">Choose your nickname:</string>
     <string name="new_base">Choose your base location:</string>
+    <string name="accept_button">Accept</string>
+    <string name="nickname_error">Nickname is not filled!</string>
+    <string name="base_error">Choose one base location!</string>
 
     // user menu
     <string name="titulo_usermenu">PERFIL DEL JUGADOR</string>

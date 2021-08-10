@@ -1,5 +1,6 @@
 package com.los3molineros.logisticstycoon.view
 
+import android.app.Activity
 import android.app.AlertDialog
 import android.app.Dialog
 import android.content.ActivityNotFoundException
@@ -14,6 +15,7 @@ import androidx.lifecycle.Observer
 import com.los3molineros.logisticstycoon.BuildConfig
 import com.los3molineros.logisticstycoon.R
 import com.los3molineros.logisticstycoon.common.Companion
+import com.los3molineros.logisticstycoon.common.toast
 import com.los3molineros.logisticstycoon.databinding.ActivityMenuBinding
 import com.los3molineros.logisticstycoon.view.headquarterMenu.HeadquarterActivity
 import com.los3molineros.logisticstycoon.view.partnershipMenu.PartnershipActivity
@@ -97,19 +99,19 @@ class MenuActivity : AppCompatActivity() {
         menuViewModel.user.observe(this) {
             if (it?.nickname == null) {
                 binding.layoutUserMenu.setOnClickListener {
-                    startActivity(Intent(this, FirstFieldsActivity::class.java))
+                    startActivityForResult(Intent(this, FirstFieldsActivity::class.java), 1)
                 }
 
                 binding.layoutTruckMenu.setOnClickListener {
-                    startActivity(Intent(this, FirstFieldsActivity::class.java))
+                    startActivityForResult(Intent(this, FirstFieldsActivity::class.java),2 )
                 }
 
                 binding.layoutHeadquarterMenu.setOnClickListener {
-                    startActivity(Intent(this, FirstFieldsActivity::class.java))
+                    startActivityForResult(Intent(this, FirstFieldsActivity::class.java), 3)
                 }
 
                 binding.layoutPartnership.setOnClickListener {
-                    startActivity(Intent(this, FirstFieldsActivity::class.java))
+                    startActivityForResult(Intent(this, FirstFieldsActivity::class.java), 4)
                 }
             } else {
                 binding.layoutUserMenu.setOnClickListener {
@@ -129,8 +131,22 @@ class MenuActivity : AppCompatActivity() {
                 }
             }
         }
-
     }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (resultCode == Activity.RESULT_OK) {
+            when (requestCode) {
+                1 -> startActivity(Intent(this, UserMenuActivity::class.java))
+                2 -> startActivity(Intent(this, TruckMenuActivity::class.java))
+                3 -> startActivity(Intent(this, HeadquarterActivity::class.java))
+                4 -> startActivity(Intent(this, PartnershipActivity::class.java))
+                5 -> toast("Option error")
+            }
+        }
+    }
+
 
     fun showVersionDialog() {
         val dialogBuilder = AlertDialog.Builder(this)

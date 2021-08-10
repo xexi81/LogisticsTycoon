@@ -7,8 +7,11 @@ import androidx.lifecycle.viewModelScope
 import com.los3molineros.logisticstycoon.model.*
 import com.los3molineros.logisticstycoon.model.data.Parameters
 import com.los3molineros.logisticstycoon.model.data.Users
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
+@ExperimentalCoroutinesApi
 class MenuViewModel : ViewModel() {
     val parameters = MutableLiveData<Parameters?>()
     val userExists = MutableLiveData<Boolean>()
@@ -24,7 +27,9 @@ class MenuViewModel : ViewModel() {
         viewModelScope.launch {
             parameters.postValue(selectFirebaseParams())
             userExists.postValue(alreadyExistsUser())
-            user.postValue(selectFirebaseUser())
+            selectFirebaseUserFlow().collect {
+                user.postValue(it)
+            }
         }
     }
 

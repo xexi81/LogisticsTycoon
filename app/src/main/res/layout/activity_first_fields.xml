@@ -8,7 +8,7 @@
     tools:context=".view.FirstFieldsActivity">
 
     <TextView
-        android:id="@+id/idTittle"
+        android:id="@+id/txtTittle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -26,7 +26,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/idTittle"
+        app:layout_constraintTop_toBottomOf="@id/txtTittle"
         android:text="@string/new_nickname"
         android:textColor="@color/white"
         android:textSize="16sp"
@@ -55,13 +55,13 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_marginStart="45dp"
-                android:background="@drawable/radius_corner_white" />
+                android:background="@drawable/radius_corner_white"
+                android:gravity="center" />
 
             <ImageView
                 android:id="@+id/ivNickname"
                 android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:src="@drawable/avatar_1" />
+                android:layout_height="80dp"/>
 
         </RelativeLayout>
 
@@ -97,19 +97,19 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <EditText
-                android:id="@+id/etBase"
+            <Spinner
+                android:id="@+id/spBase"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="30dp"
                 android:layout_centerVertical="true"
                 android:layout_marginStart="45dp"
-                android:background="@drawable/radius_corner_white" />
+                android:background="@drawable/radius_corner_white"
+                android:textAlignment="center" />
 
             <ImageView
                 android:id="@+id/ivBase"
                 android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:src="@drawable/bread_icon" />
+                android:layout_height="80dp" />
 
         </RelativeLayout>
 
@@ -125,7 +125,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/layoutBase"
         android:layout_marginTop="16dp"
-        android:text="Aceptar"
+        android:paddingStart="40dp"
+        android:paddingEnd="40dp"
+        android:text="@string/accept_button"
         android:textColor="@color/white"
         android:textSize="16sp" />
 

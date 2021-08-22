@@ -80,3 +80,13 @@ suspend fun updateNicknameAndBaseUser(nickname: String, baseLocation: String) {
         val resultData = db.collection("user").document(it).update("nickname", nickname, "base", baseLocation)
     }
 }
+
+
+suspend fun updateFirebaseUserNickname(nickname: String, gems: Int) {
+    val db = FirebaseFirestore.getInstance()
+    val uuid = returnFirebaseUser()?.uid
+
+    uuid?.let {
+        val resultData = db.collection("user").document(it).update("nickname", nickname, "gems", gems)
+    }
+}

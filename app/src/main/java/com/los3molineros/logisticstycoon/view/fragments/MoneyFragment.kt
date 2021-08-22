@@ -13,6 +13,7 @@ import com.los3molineros.logisticstycoon.common.Companion.Companion.returnCurren
 import com.los3molineros.logisticstycoon.common.Companion.Companion.returnTypefaceKingthings
 import com.los3molineros.logisticstycoon.viewModel.MoneyViewModel
 import com.squareup.picasso.Picasso
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 
 
 class MoneyFragment : Fragment() {
@@ -21,8 +22,10 @@ class MoneyFragment : Fragment() {
     lateinit var mIvMoney: ImageView
     lateinit var mIvGems: ImageView
 
+    @ExperimentalCoroutinesApi
     private val moneyViewModel: MoneyViewModel by viewModels()
 
+    @ExperimentalCoroutinesApi
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

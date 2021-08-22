@@ -1,34 +1,38 @@
 package com.los3molineros.logisticstycoon.viewModel
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.los3molineros.logisticstycoon.model.*
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 class LoginViewModel: ViewModel() {
-    val userExists = MutableLiveData<Boolean>()
+    private val _userExists = MutableLiveData<Boolean>()
+    val userExists : LiveData<Boolean> get() = _userExists
+
     val emailSended = MutableLiveData<Boolean>()
     val signedWithGoogle = MutableLiveData<Boolean>()
 
     init {
         viewModelScope.launch {
-            userExists.postValue(alreadyExistsUser())
+            alreadyExistsUser().collect { _userExists.value = it }
         }
     }
 
     fun firebaseRegisterUser(user: String, password: String) {
         viewModelScope.launch {
             registerUser(user,password)
-            userExists.postValue(alreadyExistsUser())
+            alreadyExistsUser().collect { _userExists.value = it }
         }
     }
 
     fun firebaseLoginUser(user: String, password: String) {
         viewModelScope.launch {
             loginUser(user,password)
-            userExists.postValue(alreadyExistsUser())
+            alreadyExistsUser().collect { _userExists.value = it }
         }
     }
 

@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">Logistics Tycoon</string>
+    <string name="accept_button">Accept</string>
+    <string name="no_gems">Insufficient gems</string>
+    <string name="nickname_error">Nickname is not filled!</string>
 
     // MainActivity
     <string name="version">Version </string>
@@ -47,14 +50,16 @@
     <string name="titulo_first_fields">LET\'S BEGIN!</string>
     <string name="new_nickname">Choose your nickname:</string>
     <string name="new_base">Choose your base location:</string>
-    <string name="accept_button">Accept</string>
-    <string name="nickname_error">Nickname is not filled!</string>
     <string name="base_error">Choose one base location!</string>
 
     // user menu
     <string name="titulo_usermenu">PERFIL DEL JUGADOR</string>
     <string name="boton_editar_nombre">EDIT</string>
     <string name="level2">points needed for next level</string>
+
+    // nickname dialog
+    <string name="tittle_dialog_nickname">CHANGE YOUR NICKNAME</string>
+
 
     // truck menu
     <string name="titulo_truckmenu">MENÚ CAMIONES</string>

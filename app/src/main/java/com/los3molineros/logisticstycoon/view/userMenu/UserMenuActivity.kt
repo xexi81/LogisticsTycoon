@@ -5,18 +5,26 @@ import android.graphics.Color
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.activity.viewModels
 import androidx.annotation.RequiresApi
 import com.los3molineros.logisticstycoon.R
 import com.los3molineros.logisticstycoon.common.Companion
 import com.los3molineros.logisticstycoon.databinding.ActivityUserMenuBinding
 import com.los3molineros.logisticstycoon.model.signOutFirebase
 import com.los3molineros.logisticstycoon.view.MainActivity
+import com.los3molineros.logisticstycoon.view.alerts.NicknameDialog
 import com.los3molineros.logisticstycoon.view.fragments.MoneyFragment
+import com.los3molineros.logisticstycoon.viewModel.UserMenuViewModel
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 
 
 class UserMenuActivity : AppCompatActivity() {
     lateinit var binding: ActivityUserMenuBinding
 
+    @ExperimentalCoroutinesApi
+    private val userMenuViewModel: UserMenuViewModel by viewModels()
+
+    @ExperimentalCoroutinesApi
     @RequiresApi(Build.VERSION_CODES.Q)
     override fun onCreate(savedInstanceState: Bundle?) {
         binding = ActivityUserMenuBinding.inflate(layoutInflater)
@@ -72,10 +80,19 @@ class UserMenuActivity : AppCompatActivity() {
         binding.btnSearchPlayer.typeface = Companion.returnTypefaceKingthings(this)
         binding.btnSearchPlayer.setShadowLayer(5F, 0F, 0F, Color.BLACK)
 
+        // Users data
+        userMenuViewModel.user.observe(this) {
+            binding.txtUsername.text = it?.nickname ?: ""
+        }
+
 
         // set on clicks
         binding.ivExit.setOnClickListener {
             finish()
+        }
+
+        binding.btnUsername.setOnClickListener {
+            NicknameDialog(this)
         }
 
 

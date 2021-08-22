@@ -8,14 +8,15 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
 import com.los3molineros.logisticstycoon.R
+import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.tasks.await
 import java.util.*
 
 
-fun alreadyExistsUser(): Boolean {
+fun alreadyExistsUser() = flow {
     val currentUser = FirebaseAuth.getInstance().currentUser
 
-    return currentUser != null
+    emit(currentUser != null)
 }
 
 

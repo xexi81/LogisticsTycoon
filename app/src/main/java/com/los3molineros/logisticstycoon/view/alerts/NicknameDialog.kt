@@ -13,19 +13,15 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.los3molineros.logisticstycoon.R
 import com.los3molineros.logisticstycoon.common.Companion
-import com.los3molineros.logisticstycoon.common.toast
 import com.los3molineros.logisticstycoon.model.returnUriFromStorageCloud
-import com.los3molineros.logisticstycoon.model.selectFirebaseParams
 import com.los3molineros.logisticstycoon.model.selectFirebaseUser
 import com.los3molineros.logisticstycoon.model.updateFirebaseUserNickname
 import com.squareup.picasso.Picasso
 import kotlinx.coroutines.launch
 
 
-
-class NicknameDialog(context: Context): AppCompatActivity() {
-
-    var dialog = Dialog(context)
+class NicknameDialog(val context: Context, val gemsToChangeNickname: Int = 0): AppCompatActivity() {
+    private var dialog = Dialog(context)
 
     init {
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
@@ -47,29 +43,28 @@ class NicknameDialog(context: Context): AppCompatActivity() {
 
         lifecycleScope.launch {
             val user = selectFirebaseUser()
-            val params = selectFirebaseParams()
 
 
             mTxtNickname.text = user?.nickname
-            mTxtNicknameChangeGems.text = params?.changeNickname.toString()
+            mTxtNicknameChangeGems.text = gemsToChangeNickname.toString()
             Picasso.get().load(returnUriFromStorageCloud("gs://logistics-tycoon.appspot.com/gem_icon.png")).into(mIvGems)
 
 
             mLayout.setOnClickListener {
-                if (user?.gems ?: 0 < 15) {
+                if (mTxtNickname.text.isNullOrEmpty()) {
+                    Toast.makeText(context, R.string.nickname_error, Toast.LENGTH_SHORT).show()
+                } else if (mTxtNickname.text.toString() == user?.nickname) {
+                    Toast.makeText(context, R.string.nickname_doesnt_change, Toast.LENGTH_SHORT).show()
+                } else if (user?.gems ?: 0 < gemsToChangeNickname) {
                     Toast.makeText(context, R.string.no_gems, Toast.LENGTH_SHORT).show()
                 } else {
-                    if (mTxtNickname.text.isNullOrEmpty()) {
-                        Toast.makeText(context, R.string.nickname_error, Toast.LENGTH_SHORT).show()
-                    } else {
-                        val newGems = user?.gems?.minus((params?.changeNickname?:0 ))
+                        val newGems = user?.gems?.minus((gemsToChangeNickname ))
                         lifecycleScope.launch {
                             updateFirebaseUserNickname(mTxtNickname.text.toString(), newGems ?: 0)
                             dialog.dismiss()
                         }
                     }
                 }
-            }
         }
 
 
@@ -80,8 +75,6 @@ class NicknameDialog(context: Context): AppCompatActivity() {
 
         dialog.show()
     }
-
-
 
 
 }

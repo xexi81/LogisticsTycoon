@@ -5,6 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.los3molineros.logisticstycoon.common.Companion.Companion.debugLog
 import com.los3molineros.logisticstycoon.model.*
 import com.los3molineros.logisticstycoon.model.data.Parameters
 import com.los3molineros.logisticstycoon.model.data.Users
@@ -14,8 +15,6 @@ import kotlinx.coroutines.launch
 
 @ExperimentalCoroutinesApi
 class MenuViewModel : ViewModel() {
-    val parameters = MutableLiveData<Parameters?>()
-    val user = MutableLiveData<Users?>()
     val userMenuImage = MutableLiveData<Uri?>()
     val trucksMenuImage = MutableLiveData<Uri?>()
     val routesMenuImage = MutableLiveData<Uri?>()
@@ -23,15 +22,36 @@ class MenuViewModel : ViewModel() {
     val partnershipMenuImage = MutableLiveData<Uri?>()
     val storeMenuImage = MutableLiveData<Uri?>()
 
+    private val _parameters = MutableLiveData<Parameters?>()
+    val parameters: LiveData<Parameters?> get() = _parameters
+
+
     private val _userExists = MutableLiveData<Boolean>()
     val userExists : LiveData<Boolean> get() = _userExists
 
+    private val _user = MutableLiveData<Users?>()
+    val user: LiveData<Users?> get() = _user
+
+
     init {
         viewModelScope.launch {
-            parameters.postValue(selectFirebaseParams())
-            alreadyExistsUser().collect { _userExists.value = it }
             selectFirebaseUserFlow().collect {
-                user.postValue(it)
+                debugLog(description = "entramos en el colects de users con ${it.toString()}")
+                _user.value = it
+            }
+        }
+
+        viewModelScope.launch {
+            selectFirebaseParams().collect {
+                debugLog(description = "entramos en el colects de parameters con ${it.toString()}")
+                _parameters.value = it
+            }
+        }
+
+        viewModelScope.launch {
+            alreadyExistsUser().collect {
+                debugLog(description = "entramos en el colects de userexists con $it")
+                _userExists.value = it
             }
         }
     }

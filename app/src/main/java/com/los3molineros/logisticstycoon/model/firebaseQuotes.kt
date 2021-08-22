@@ -2,9 +2,11 @@ package com.los3molineros.logisticstycoon.model
 
 import com.google.firebase.firestore.FirebaseFirestore
 import com.los3molineros.logisticstycoon.model.data.Quotes
+import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.tasks.await
 
-suspend fun selectRandomQuote(): Quotes? {
+
+suspend fun returnRandomQuote() = flow {
     val db = FirebaseFirestore.getInstance()
     val listQuotes: MutableList<Quotes> = mutableListOf()
 
@@ -19,8 +21,7 @@ suspend fun selectRandomQuote(): Quotes? {
 
         val index = (0 until listQuotes.size).random()
 
-        return listQuotes[index]
+        emit(listQuotes[index])
 
-    } else return null
-
+    } else emit(null)
 }

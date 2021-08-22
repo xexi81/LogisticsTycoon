@@ -2,9 +2,8 @@ package com.los3molineros.logisticstycoon.common
 
 import android.content.Context
 import android.graphics.Typeface
-import java.lang.String.format
+import android.util.Log
 import java.text.NumberFormat
-import java.util.*
 
 
 class Companion {
@@ -20,6 +19,12 @@ class Companion {
 
         fun returnCurrencyFormat(number: Int): String {
             return NumberFormat.getInstance().format(number)
+        }
+
+        val TAG_SERGIO = "Sergio"
+
+        fun debugLog(tag: String = TAG_SERGIO, description: String) {
+            Log.d(tag, description)
         }
     }
 }

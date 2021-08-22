@@ -2,11 +2,9 @@ package com.los3molineros.logisticstycoon.view.userMenu
 
 import android.content.Intent
 import android.graphics.Color
-import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
-import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AppCompatActivity
 import com.los3molineros.logisticstycoon.R
 import com.los3molineros.logisticstycoon.common.Companion
 import com.los3molineros.logisticstycoon.databinding.ActivityUserMenuBinding
@@ -25,29 +23,40 @@ class UserMenuActivity : AppCompatActivity() {
     private val userMenuViewModel: UserMenuViewModel by viewModels()
 
     @ExperimentalCoroutinesApi
-    @RequiresApi(Build.VERSION_CODES.Q)
     override fun onCreate(savedInstanceState: Bundle?) {
         binding = ActivityUserMenuBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
+        initUI()
 
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
                 .replace(R.id.fBasicItems, MoneyFragment())
                 .commitNow()
         }
+    }
 
+    @ExperimentalCoroutinesApi
+    private fun initUI() {
+        initSubscription()
+        initListeners()
+        initFields()
+    }
+
+    private fun initFields() {
         binding.idTittle.typeface = Companion.returnTypefaceKimbalt(this)
         binding.txtUsername.typeface = Companion.returnTypefaceKingthings(this)
         binding.btnUsername.typeface = Companion.returnTypefaceKingthings(this)
         binding.btnUsername.setShadowLayer(5F, 0F, 0F, Color.BLACK)
-        binding.btnAvatar.typeface = Companion.returnTypefaceKingthings(this)
-        binding.btnAvatar.setShadowLayer(5F, 0F, 0F, Color.BLACK)
         binding.txtNextLevel.text = "579 ${getString(R.string.level2)}"
         binding.txtNextLevel.typeface = Companion.returnTypefaceKingthings(this)
         binding.txtLevel.text = "NIVEL 275"
         binding.txtLevel.typeface = Companion.returnTypefaceKingthings(this)
+
+        // Avatars
+        binding.btnAvatar.typeface = Companion.returnTypefaceKingthings(this)
+        binding.btnAvatar.setShadowLayer(5F, 0F, 0F, Color.BLACK)
 
         // Progress Bar
         binding.pbLevel.max = 100
@@ -79,24 +88,21 @@ class UserMenuActivity : AppCompatActivity() {
         binding.btnSignOut.setShadowLayer(5F, 0F, 0F, Color.BLACK)
         binding.btnSearchPlayer.typeface = Companion.returnTypefaceKingthings(this)
         binding.btnSearchPlayer.setShadowLayer(5F, 0F, 0F, Color.BLACK)
+    }
 
-        // Users data
-        userMenuViewModel.user.observe(this) {
-            binding.txtUsername.text = it?.nickname ?: ""
-        }
-
-
+    @ExperimentalCoroutinesApi
+    private fun initListeners() {
         // set on clicks
         binding.ivExit.setOnClickListener {
             finish()
         }
 
-        binding.btnUsername.setOnClickListener {
-            NicknameDialog(this)
+        userMenuViewModel.parameters.observe(this) { params ->
+            binding.linearLayout3.setOnClickListener { NicknameDialog(this, params.changeNickname) }
+            binding.btnUsername.setOnClickListener { NicknameDialog(this, params.changeNickname) }
         }
 
-
-        // Sign out Posit
+        // Sign out
         binding.btnSignOut.setOnClickListener {
             signOutFirebase(this)
 
@@ -107,4 +113,14 @@ class UserMenuActivity : AppCompatActivity() {
             startActivity(intent)
         }
     }
+
+    @ExperimentalCoroutinesApi
+    private fun initSubscription() {
+        userMenuViewModel.user.observe(this) {
+            binding.txtUsername.text = it?.nickname ?: ""
+            binding.ivAvatar.setImageResource(0)
+        }
+    }
+
+
 }

@@ -2,19 +2,18 @@ package com.los3molineros.logisticstycoon.view
 
 import android.app.Activity
 import android.app.AlertDialog
-import android.app.Dialog
 import android.content.ActivityNotFoundException
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.Window
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import com.los3molineros.logisticstycoon.BuildConfig
 import com.los3molineros.logisticstycoon.R
 import com.los3molineros.logisticstycoon.common.Companion
+import com.los3molineros.logisticstycoon.common.Companion.Companion.debugLog
 import com.los3molineros.logisticstycoon.common.toast
 import com.los3molineros.logisticstycoon.databinding.ActivityMenuBinding
 import com.los3molineros.logisticstycoon.view.headquarterMenu.HeadquarterActivity
@@ -23,15 +22,21 @@ import com.los3molineros.logisticstycoon.view.trucksMenu.TruckMenuActivity
 import com.los3molineros.logisticstycoon.view.userMenu.UserMenuActivity
 import com.los3molineros.logisticstycoon.viewModel.MenuViewModel
 import com.squareup.picasso.Picasso
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 
 class MenuActivity : AppCompatActivity() {
     lateinit var binding: ActivityMenuBinding
+
+    @ExperimentalCoroutinesApi
     private val menuViewModel: MenuViewModel by viewModels()
 
+    @ExperimentalCoroutinesApi
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMenuBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        initUI()
 
         binding.txtBaseMenu.typeface = Companion.returnTypefaceKingthings(this)
         binding.txtGroupMenu.typeface = Companion.returnTypefaceKingthings(this)
@@ -40,8 +45,78 @@ class MenuActivity : AppCompatActivity() {
         binding.txtUserMenu.typeface = Companion.returnTypefaceKingthings(this)
         binding.txtStore.typeface = Companion.returnTypefaceKingthings(this)
 
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (resultCode == Activity.RESULT_OK) {
+            when (requestCode) {
+                1 -> startActivity(Intent(this, UserMenuActivity::class.java))
+                2 -> startActivity(Intent(this, TruckMenuActivity::class.java))
+                3 -> startActivity(Intent(this, HeadquarterActivity::class.java))
+                4 -> startActivity(Intent(this, PartnershipActivity::class.java))
+                5 -> toast("Option error")
+            }
+        }
+    }
+
+    override fun onBackPressed() {
+        return
+    }
+
+    @ExperimentalCoroutinesApi
+    private fun initUI() {
+        debugLog(description = "entramos en initUI")
+        initSubscription()
+        initListeners()
+    }
+
+    @ExperimentalCoroutinesApi
+    private fun initListeners() {
+        debugLog(description = "entramos en initListeners")
+        menuViewModel.user.observe(this) {
+            debugLog(description = "Entramos por el OBSERVER de initListeners")
+            if (it?.nickname == null) {
+                binding.layoutUserMenu.setOnClickListener {
+                    startActivityForResult(Intent(this, FirstFieldsActivity::class.java), 1)
+                }
+
+                binding.layoutTruckMenu.setOnClickListener {
+                    startActivityForResult(Intent(this, FirstFieldsActivity::class.java), 2)
+                }
+
+                binding.layoutHeadquarterMenu.setOnClickListener {
+                    startActivityForResult(Intent(this, FirstFieldsActivity::class.java), 3)
+                }
+
+                binding.layoutPartnership.setOnClickListener {
+                    startActivityForResult(Intent(this, FirstFieldsActivity::class.java), 4)
+                }
+            } else {
+                binding.layoutUserMenu.setOnClickListener {
+                    startActivity(Intent(this, UserMenuActivity::class.java))
+                }
+
+                binding.layoutTruckMenu.setOnClickListener {
+                    startActivity(Intent(this, TruckMenuActivity::class.java))
+                }
+
+                binding.layoutHeadquarterMenu.setOnClickListener {
+                    startActivity(Intent(this, HeadquarterActivity::class.java))
+                }
+
+                binding.layoutPartnership.setOnClickListener {
+                    startActivity(Intent(this, PartnershipActivity::class.java))
+                }
+            }
+        }
+    }
+
+    @ExperimentalCoroutinesApi
+    private fun initSubscription() {
         menuViewModel.parameters.observe(this, Observer { parameters ->
-            if (parameters!=null && parameters.versionCode != BuildConfig.VERSION_CODE) {
+            if (parameters != null && parameters.versionCode != BuildConfig.VERSION_CODE) {
                 showVersionDialog()
             }
         })
@@ -53,7 +128,6 @@ class MenuActivity : AppCompatActivity() {
                 startActivity(Intent(this, MainActivity::class.java))
             }
         }
-
 
         // load Images from Storage cloud Firebase
         menuViewModel.returnUserMenuImage(getString(R.string.userMenuImage))
@@ -91,64 +165,10 @@ class MenuActivity : AppCompatActivity() {
         menuViewModel.storeMenuImage.observe(this) { tittle ->
             Picasso.get().load(tittle).into(binding.ivStore)
         }
-
-
-
-        // ON CLICK LISTENERS
-        // user Posit
-        menuViewModel.user.observe(this) {
-            if (it?.nickname == null) {
-                binding.layoutUserMenu.setOnClickListener {
-                    startActivityForResult(Intent(this, FirstFieldsActivity::class.java), 1)
-                }
-
-                binding.layoutTruckMenu.setOnClickListener {
-                    startActivityForResult(Intent(this, FirstFieldsActivity::class.java),2 )
-                }
-
-                binding.layoutHeadquarterMenu.setOnClickListener {
-                    startActivityForResult(Intent(this, FirstFieldsActivity::class.java), 3)
-                }
-
-                binding.layoutPartnership.setOnClickListener {
-                    startActivityForResult(Intent(this, FirstFieldsActivity::class.java), 4)
-                }
-            } else {
-                binding.layoutUserMenu.setOnClickListener {
-                    startActivity(Intent(this, UserMenuActivity::class.java))
-                }
-
-                binding.layoutTruckMenu.setOnClickListener {
-                    startActivity(Intent(this, TruckMenuActivity::class.java))
-                }
-
-                binding.layoutHeadquarterMenu.setOnClickListener {
-                    startActivity(Intent(this, HeadquarterActivity::class.java))
-                }
-
-                binding.layoutPartnership.setOnClickListener {
-                    startActivity(Intent(this, PartnershipActivity::class.java))
-                }
-            }
-        }
-    }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-
-        if (resultCode == Activity.RESULT_OK) {
-            when (requestCode) {
-                1 -> startActivity(Intent(this, UserMenuActivity::class.java))
-                2 -> startActivity(Intent(this, TruckMenuActivity::class.java))
-                3 -> startActivity(Intent(this, HeadquarterActivity::class.java))
-                4 -> startActivity(Intent(this, PartnershipActivity::class.java))
-                5 -> toast("Option error")
-            }
-        }
     }
 
 
-    fun showVersionDialog() {
+    private fun showVersionDialog() {
         val dialogBuilder = AlertDialog.Builder(this)
         dialogBuilder
             .setMessage(getString(R.string.actDescripcion))
@@ -156,9 +176,11 @@ class MenuActivity : AppCompatActivity() {
             .setPositiveButton(getString(R.string.actSi)) { dialog, which ->
                 openAppInPlaystore("com.mobile.legends", this)
             }
-            .setNegativeButton(getString(R.string.actNo)) {dialog, which -> {
-                dialog.dismiss()
-            } }
+            .setNegativeButton(getString(R.string.actNo)) { dialog, which ->
+                {
+                    dialog.dismiss()
+                }
+            }
 
         val alert = dialogBuilder.create()
         alert.setTitle(getString(R.string.actTitulo))

@@ -6,6 +6,7 @@ data class Users (
     val id: String = "",
     val nickname: String? = "",
     val lastConnectedDate: Date? = null,
+    val avatar: Int? = null,
     val base: String? = null,
     val experience: Int = 0,
     val money: Int = 0,

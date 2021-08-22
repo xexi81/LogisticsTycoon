@@ -1,11 +1,13 @@
 package com.los3molineros.logisticstycoon.model
 
 import com.google.firebase.firestore.FirebaseFirestore
+import com.los3molineros.logisticstycoon.common.Companion.Companion.debugLog
 import com.los3molineros.logisticstycoon.model.data.Users
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.callbackFlow
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.tasks.await
 import java.util.*
 
@@ -23,40 +25,49 @@ suspend fun selectFirebaseUser(): Users? {
     return resultData.toObject(Users::class.java)
 }
 
+
 @ExperimentalCoroutinesApi
 suspend fun selectFirebaseUserFlow(): Flow<Users?> = callbackFlow {
+
+    debugLog(description = "firebase user function enter")
 
     val uuid = returnFirebaseUser()?.uid
 
     uuid?.let {
-        val document = FirebaseFirestore
+        val resultData = FirebaseFirestore
             .getInstance()
             .collection("user")
             .document(it)
 
-        val subscription = document.addSnapshotListener { documentSnapshot, firebaseFirestoreException ->
-
-            if (documentSnapshot !=null && documentSnapshot.exists()) {
-                offer(documentSnapshot.toObject(Users::class.java))
+        val subscription = resultData.addSnapshotListener { snapshot, _ ->
+            if (snapshot!!.exists()) {
+                offer(snapshot.toObject(Users::class.java))
             }
         }
         awaitClose { subscription.remove() }
     }
 }
 
-
-
-
+@ExperimentalCoroutinesApi
 suspend fun insertFirebaseUser() {
     val db = FirebaseFirestore.getInstance()
     val uuid = returnFirebaseUser()?.uid
     val date = Calendar.getInstance().time
 
-    val parameter = selectFirebaseParams()
+    selectFirebaseParams().collect { parameters ->
+        val initialMoney = parameters?.initialMoney ?: 50000
+        val initialGems = parameters?.initialGems ?: 0
 
-    uuid?.let {
-        val newUser = Users(id = it, nickname = null, lastConnectedDate = date, money = parameter?.initialMoney ?: 50000, gems = parameter?.initialGems ?: 0)
-        val resultData = db.collection("user").document(it).set(newUser).await()
+        uuid?.let { user ->
+            val newUser = Users(
+                id = user,
+                nickname = null,
+                lastConnectedDate = date,
+                money = initialMoney ?: 50000,
+                gems = initialGems ?: 0
+            )
+            val resultData = db.collection("user").document(user).set(newUser).await()
+        }
     }
 }
 
@@ -77,7 +88,8 @@ suspend fun updateNicknameAndBaseUser(nickname: String, baseLocation: String) {
     val uuid = returnFirebaseUser()?.uid
 
     uuid?.let {
-        val resultData = db.collection("user").document(it).update("nickname", nickname, "base", baseLocation)
+        val resultData =
+            db.collection("user").document(it).update("nickname", nickname, "base", baseLocation)
     }
 }
 
@@ -87,6 +99,7 @@ suspend fun updateFirebaseUserNickname(nickname: String, gems: Int) {
     val uuid = returnFirebaseUser()?.uid
 
     uuid?.let {
-        val resultData = db.collection("user").document(it).update("nickname", nickname, "gems", gems)
+        val resultData =
+            db.collection("user").document(it).update("nickname", nickname, "gems", gems)
     }
 }

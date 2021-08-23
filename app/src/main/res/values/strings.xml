@@ -57,6 +57,7 @@
     <string name="titulo_usermenu">PLAYER PROFILE</string>
     <string name="boton_editar_nombre">EDIT</string>
     <string name="level2">points needed for next level</string>
+    <string name="change">CHANGE AVATAR</string>
 
     // nickname dialog
     <string name="tittle_dialog_nickname">CHANGE YOUR NICKNAME</string>
@@ -71,7 +72,9 @@
     // Partnership menu
     <string name="titulo_partnership">MENÚ ASOCIACIÓN</string>
     <string name="exitfromusermenu">ExitFromUserMenu</string>
-    <string name="change">CHANGE AVATAR</string>
+
+    // Avatar activity
+    <string name="titulo_avatar">AVATAR MENU</string>
 
 
 </resources>

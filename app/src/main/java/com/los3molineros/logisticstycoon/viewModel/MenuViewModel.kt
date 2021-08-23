@@ -5,7 +5,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.los3molineros.logisticstycoon.common.Companion.Companion.debugLog
 import com.los3molineros.logisticstycoon.model.*
 import com.los3molineros.logisticstycoon.model.data.Parameters
 import com.los3molineros.logisticstycoon.model.data.Users
@@ -36,21 +35,18 @@ class MenuViewModel : ViewModel() {
     init {
         viewModelScope.launch {
             selectFirebaseUserFlow().collect {
-                debugLog(description = "entramos en el colects de users con ${it.toString()}")
                 _user.value = it
             }
         }
 
         viewModelScope.launch {
             selectFirebaseParams().collect {
-                debugLog(description = "entramos en el colects de parameters con ${it.toString()}")
                 _parameters.value = it
             }
         }
 
         viewModelScope.launch {
             alreadyExistsUser().collect {
-                debugLog(description = "entramos en el colects de userexists con $it")
                 _userExists.value = it
             }
         }
@@ -99,10 +95,4 @@ class MenuViewModel : ViewModel() {
             storeMenuImage.postValue(returnUriFromStorageCloud(url))
         }
     }
-
-
-
-
-
-
 }

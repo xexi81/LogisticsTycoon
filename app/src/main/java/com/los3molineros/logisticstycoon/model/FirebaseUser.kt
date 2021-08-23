@@ -1,7 +1,6 @@
 package com.los3molineros.logisticstycoon.model
 
 import com.google.firebase.firestore.FirebaseFirestore
-import com.los3molineros.logisticstycoon.common.Companion.Companion.debugLog
 import com.los3molineros.logisticstycoon.model.data.Users
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.channels.awaitClose
@@ -28,8 +27,6 @@ suspend fun selectFirebaseUser(): Users? {
 
 @ExperimentalCoroutinesApi
 suspend fun selectFirebaseUserFlow(): Flow<Users?> = callbackFlow {
-
-    debugLog(description = "firebase user function enter")
 
     val uuid = returnFirebaseUser()?.uid
 
@@ -63,10 +60,10 @@ suspend fun insertFirebaseUser() {
                 id = user,
                 nickname = null,
                 lastConnectedDate = date,
-                money = initialMoney ?: 50000,
-                gems = initialGems ?: 0
+                money = initialMoney,
+                gems = initialGems
             )
-            val resultData = db.collection("user").document(user).set(newUser).await()
+            db.collection("user").document(user).set(newUser).await()
         }
     }
 }
@@ -102,4 +99,21 @@ suspend fun updateFirebaseUserNickname(nickname: String, gems: Int) {
         val resultData =
             db.collection("user").document(it).update("nickname", nickname, "gems", gems)
     }
+}
+
+suspend fun updateAvatarUser(uuid: String, avatarId: Int) {
+    val resultData = FirebaseFirestore
+        .getInstance()
+        .collection("user")
+        .document(uuid)
+        .update("avatar", avatarId)
+        .await()
+}
+
+fun buyUserAvatar(uuid: String, avatarID: Int, money: Int, gems: Int) {
+    val resultData = FirebaseFirestore
+        .getInstance()
+        .collection("user")
+        .document(uuid)
+        .update("avatar", avatarID, "money", money, "gems", gems)
 }

@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ButtonChanger">
         <activity
+            android:name=".view.userMenu.avatars.AvatarActivity"
+            android:exported="true" />
+        <activity
             android:name=".view.FirstFieldsActivity"
             android:exported="true" />
         <activity

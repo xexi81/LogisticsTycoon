@@ -12,7 +12,9 @@ import com.los3molineros.logisticstycoon.model.signOutFirebase
 import com.los3molineros.logisticstycoon.view.MainActivity
 import com.los3molineros.logisticstycoon.view.alerts.NicknameDialog
 import com.los3molineros.logisticstycoon.view.fragments.MoneyFragment
+import com.los3molineros.logisticstycoon.view.userMenu.avatars.AvatarActivity
 import com.los3molineros.logisticstycoon.viewModel.UserMenuViewModel
+import com.squareup.picasso.Picasso
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 
 
@@ -112,6 +114,11 @@ class UserMenuActivity : AppCompatActivity() {
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
             startActivity(intent)
         }
+
+        // Avatars
+        binding.btnAvatar.setOnClickListener {
+            startActivity(Intent(this, AvatarActivity::class.java))
+        }
     }
 
     @ExperimentalCoroutinesApi
@@ -119,7 +126,18 @@ class UserMenuActivity : AppCompatActivity() {
         userMenuViewModel.user.observe(this) {
             binding.txtUsername.text = it?.nickname ?: ""
             binding.ivAvatar.setImageResource(0)
+
+            it?.let {
+                if (it.avatar != null) {
+                    userMenuViewModel.returnAvatarUserImage(it.avatar)
+                }
+            }
         }
+
+        userMenuViewModel.userAvatarImage.observe(this) {
+            Picasso.get().load(it).into(binding.ivAvatar)
+        }
+
     }
 
 

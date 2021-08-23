@@ -2,7 +2,7 @@ package com.los3molineros.logisticstycoon.model.repository
 
 import com.los3molineros.logisticstycoon.model.data.Avatars
 
-class AvatarsRepository {
+class AvatarsRepository() {
 
     val avatarsList = listOf<Avatars>(
         Avatars(0, "Avatar1", "gs://logistics-tycoon.appspot.com/avatar_1.png", 0, 0),
@@ -12,13 +12,20 @@ class AvatarsRepository {
         Avatars(4, "Avatar5", "gs://logistics-tycoon.appspot.com/avatar_5.png", 0, 10 ),
         Avatars(5, "Avatar6", "gs://logistics-tycoon.appspot.com/avatar_6.png", 0, 0 ),
         Avatars(6, "Avatar7", "gs://logistics-tycoon.appspot.com/avatar_7.png", 1000, 0 ),
-        Avatars(7, "Avatar8", "gs://logistics-tycoon.appspot.com/avatar_8.png", 0, 10 ),
-        Avatars(8, "Avatar9", "gs://logistics-tycoon.appspot.com/avatar_9.png", 10000, 0 ),
-        Avatars(9, "Avatar10", "gs://logistics-tycoon.appspot.com/avatar_10.png", 100000, 0 )
+        Avatars(7, "Avatar9", "gs://logistics-tycoon.appspot.com/avatar_9.png", 10000, 0 ),
+        Avatars(8, "Avatar10", "gs://logistics-tycoon.appspot.com/avatar_10.png", 100000, 0 ),
+        Avatars(9, "Avatar8", "gs://logistics-tycoon.appspot.com/avatar_8.png", 0, 10 )
     )
 
     fun returnAllAvatars(): List<Avatars> {
         return avatarsList
+    }
+
+
+    fun selectAvatar(id: Int): Avatars {
+        val avatarList = returnAllAvatars()
+
+        return avatarList.first { it.id == id }
     }
 
 }

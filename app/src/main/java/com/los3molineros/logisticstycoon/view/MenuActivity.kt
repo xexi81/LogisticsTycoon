@@ -13,7 +13,6 @@ import androidx.lifecycle.Observer
 import com.los3molineros.logisticstycoon.BuildConfig
 import com.los3molineros.logisticstycoon.R
 import com.los3molineros.logisticstycoon.common.Companion
-import com.los3molineros.logisticstycoon.common.Companion.Companion.debugLog
 import com.los3molineros.logisticstycoon.common.toast
 import com.los3molineros.logisticstycoon.databinding.ActivityMenuBinding
 import com.los3molineros.logisticstycoon.view.headquarterMenu.HeadquarterActivity
@@ -67,16 +66,13 @@ class MenuActivity : AppCompatActivity() {
 
     @ExperimentalCoroutinesApi
     private fun initUI() {
-        debugLog(description = "entramos en initUI")
         initSubscription()
         initListeners()
     }
 
     @ExperimentalCoroutinesApi
     private fun initListeners() {
-        debugLog(description = "entramos en initListeners")
         menuViewModel.user.observe(this) {
-            debugLog(description = "Entramos por el OBSERVER de initListeners")
             if (it?.nickname == null) {
                 binding.layoutUserMenu.setOnClickListener {
                     startActivityForResult(Intent(this, FirstFieldsActivity::class.java), 1)

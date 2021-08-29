@@ -9,6 +9,7 @@ data class Users (
     val avatar: Int? = null,
     val base: String? = null,
     val experience: Int = 0,
+    val level: Int = 1,
     val money: Int = 0,
     val gems: Int = 0,
     val bread: Int = 0,
@@ -18,7 +19,7 @@ data class Users (
     val doneContracts: Int = 0,
     val medals: Int = 0,
     val partnership: String? = null,
-    val isAdministrator: Boolean = false,
+    val administrator: Boolean = false,
     val notifications: Boolean = false,
     val sound: Boolean = false,
     val music: Boolean = false

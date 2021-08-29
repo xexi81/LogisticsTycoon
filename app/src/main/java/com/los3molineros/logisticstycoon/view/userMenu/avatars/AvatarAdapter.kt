@@ -12,7 +12,9 @@ import com.los3molineros.logisticstycoon.common.Companion.Companion.returnCurren
 import com.los3molineros.logisticstycoon.databinding.ItemAvatarBinding
 import com.los3molineros.logisticstycoon.model.data.Avatars
 import com.los3molineros.logisticstycoon.model.data.UserAvatars
+import com.los3molineros.logisticstycoon.model.returnUriFromStorageCloud
 import com.squareup.picasso.Picasso
+import kotlinx.coroutines.*
 
 
 class AvatarAdapter(
@@ -89,10 +91,25 @@ class AvatarAdapter(
                     binding.ivMoneyAvatar.visibility = View.VISIBLE
                     binding.txtMoneyAvatar.text = returnCurrencyFormat(avatar?.money ?: 0)
                     binding.ivMoneyAvatar.setImageResource(R.drawable.camiones_icon)
+
+                    GlobalScope.launch {
+                        withContext(Dispatchers.Main) {
+                            val moneyUri =
+                                returnUriFromStorageCloud(context.getString(R.string.money_icon))
+                            Picasso.get().load(moneyUri).into(binding.ivMoneyAvatar)
+                        }
+                    }
                 } else if (avatar?.gems ?: 0 > 0) {
                     binding.ivMoneyAvatar.visibility = View.VISIBLE
                     binding.txtMoneyAvatar.text = returnCurrencyFormat(avatar?.gems ?: 0)
                     binding.ivMoneyAvatar.setImageResource(R.drawable.bread_icon)
+
+                    GlobalScope.launch {
+                        withContext(Dispatchers.Main) {
+                            val moneyUri = returnUriFromStorageCloud(context.getString(R.string.gems_icon))
+                            Picasso.get().load(moneyUri).into(binding.ivMoneyAvatar)
+                        }
+                    }
                 } else {
                     binding.ivMoneyAvatar.visibility = View.GONE
                     binding.txtMoneyAvatar.text = context.getString(R.string.change)
@@ -118,6 +135,12 @@ class AvatarAdapter(
             }
         }
         return hasUserThisAvatar
+    }
+
+    private fun imageForMoney(url: String) {
+        GlobalScope.launch {
+            returnUriFromStorageCloud(url)
+        }
     }
 
 }

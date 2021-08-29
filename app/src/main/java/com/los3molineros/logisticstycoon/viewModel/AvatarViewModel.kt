@@ -8,8 +8,10 @@ import androidx.lifecycle.viewModelScope
 import changeFirebaseUserAvatar
 import com.los3molineros.logisticstycoon.model.data.Avatars
 import com.los3molineros.logisticstycoon.model.data.UserAvatars
+import com.los3molineros.logisticstycoon.model.data.Users
 import com.los3molineros.logisticstycoon.model.repository.AvatarsRepository
 import com.los3molineros.logisticstycoon.model.returnUriFromStorageCloud
+import com.los3molineros.logisticstycoon.model.selectFirebaseUserFlow
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
@@ -26,6 +28,10 @@ class AvatarViewModel: ViewModel() {
     private val _userAvatarList = MutableLiveData<List<UserAvatars>?>()
     val userAvatarList: LiveData<List<UserAvatars>?> get() = _userAvatarList
 
+    private val _user = MutableLiveData<Users?>()
+    val user: LiveData<Users?> get() = _user
+
+
     init {
         viewModelScope.launch {
             _avatarList.postValue(AvatarsRepository().returnAllAvatars())
@@ -34,6 +40,12 @@ class AvatarViewModel: ViewModel() {
         viewModelScope.launch {
             selectFirebaseUserAvatars().collect {
                 _userAvatarList.value = it
+            }
+        }
+
+        viewModelScope.launch {
+            selectFirebaseUserFlow().collect {
+                _user.value = it
             }
         }
     }

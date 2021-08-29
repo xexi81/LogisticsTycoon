@@ -8,6 +8,7 @@ import com.los3molineros.logisticstycoon.R
 import com.los3molineros.logisticstycoon.common.Companion
 import com.los3molineros.logisticstycoon.common.snakeBar
 import com.los3molineros.logisticstycoon.databinding.ActivityAvatarBinding
+import com.los3molineros.logisticstycoon.model.repository.AvatarsRepository
 import com.los3molineros.logisticstycoon.view.fragments.MoneyFragment
 import com.los3molineros.logisticstycoon.viewModel.AvatarViewModel
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -80,6 +81,18 @@ class AvatarActivity : AppCompatActivity() {
 
     @ExperimentalCoroutinesApi
     private fun onClick(id: Int) {
-        avatarViewModel.changeUserAvatar(id)
+        avatarViewModel.user.observe(this) {
+            val moneyUser = it?.money ?: 0
+            val gemsUser = it?.gems ?: 0
+            val moneyAvatar = AvatarsRepository().selectAvatar(id).money
+            val gemsAvatar = AvatarsRepository().selectAvatar(id).gems
+
+            if (moneyUser < moneyAvatar || gemsUser < gemsAvatar) {
+                binding.rvAvatars.snakeBar(getString(R.string.error_buy_avatar))
+            } else {
+                avatarViewModel.changeUserAvatar(id)
+                finish()
+            }
+        }
     }
 }

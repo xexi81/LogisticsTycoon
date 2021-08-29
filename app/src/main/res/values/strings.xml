@@ -10,6 +10,11 @@
     <string name="tittle_image">gs://logistics-tycoon.appspot.com/inicio_tittle.png</string>
     <string name="content_desc_tittle">App tittle</string>
 
+    // Money fragments
+    <string name="money_icon">gs://logistics-tycoon.appspot.com/money_icon.png</string>
+    <string name="gems_icon">gs://logistics-tycoon.appspot.com/gem_icon.png</string>
+
+
     // quotes
     <string name="quote1">You can search players in User Menu</string>
     <string name="quote2">Trucks go at real speed unless you buy speed bonuses</string>
@@ -75,6 +80,7 @@
 
     // Avatar activity
     <string name="titulo_avatar">AVATAR MENU</string>
+    <string name="error_buy_avatar">Not enough money to buy this avatar</string>
 
 
 </resources>
